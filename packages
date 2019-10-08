@@ -1,0 +1,16 @@
+texlive-base
+texlive-latex-recommended
+texlive-latex-extra
+texlive-xetex
+texlive-fonts-recommended
+texlive-lang-english
+texlive-lang-german
+texlive-lang-arabic
+fonts-sil-charis
+fonts-sil-charis-compact
+fonts-sil-gentiumplus
+fonts-freefont-otf
+fonts-sil-scheherazade
+fonts-noto
+python3-pip
+xsltproc

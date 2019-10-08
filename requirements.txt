@@ -1,0 +1,3 @@
+panflute
+pandoc-fignos
+pandoc-tablenos

@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+/* Fonts */
+
+@font-face {
+  font-family: CharisSILW;
+  src: url(https://static.ceres.rub.de/er/fonts/CharisSIL-R.woff);
+}
+
+@font-face {
+  font-family: CharisSILW;
+  font-style: italic;
+  src: url(https://static.ceres.rub.de/er/fonts/CharisSIL-I.woff);
+}
+
+@font-face {
+  font-family: CharisSILW;
+  font-weight: bold;
+  src: url(https://static.ceres.rub.de/er/fonts/CharisSIL-B.woff);
+}
+
+@font-face {
+  font-family: CharisSILW;
+  font-weight: bold;
+  font-style: italic;
+  src: url(https://static.ceres.rub.de/er/fonts/CharisSIL-BI.woff);
+}
+
+/* ER styles */
+
+article.fulltext {
+  font-size: 20px;
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: CharisSILW, "Charis SIL", serif;
+  color: #3c3c3c;
+  line-height: 1.6;
+}
+
+/* Title block */
+
+article.fulltext #title-block .logo {
+  text-align: right;
+  padding-bottom: 1em;
+  border-bottom: .1em solid black;
+}
+
+article.fulltext #title-block .logo img {
+  height: 5em;
+}
+
+article.fulltext #title-block a:link {
+  background: none;
+}
+
+article.fulltext #title-block .smallprint {
+  display: table;
+  width: 100%;
+  margin: 1em 0;
+  font-size: .8em;
+}
+
+article.fulltext #title-block .smallprint > div {
+  display: table-cell;
+  vertical-align: top;
+}
+
+article.fulltext #title-block .smallprint > div > span {
+  display: block;
+}
+
+article.fulltext #title-block .journal {
+  text-align: right;
+}
+
+article.fulltext #title-block .license-badge {
+  width: 130px;
+}
+
+article.fulltext #title-block .license-badge img {
+  width: 120px;
+}
+
+/* Header */
+
+article.fulltext h1.title {
+  font-size: 2em;
+  margin-top: 2em;
+}
+
+article.fulltext h2.subtitle {
+  font-size: 1.6em;
+  font-weight: normal;
+}
+
+article.fulltext .abstract p,
+article.fulltext .keywords p {
+  font-size: .8em;
+}
+
+article.fulltext .abstract::before,
+article.fulltext .keywords::before {
+  font-size: .8em;
+  font-variant: small-caps;
+  font-weight: bold;
+  float: left;
+  padding-right: 1em;
+}
+
+article.fulltext .abstract::before {
+  content: 'abstract';
+}
+
+article.fulltext .keywords::before {
+  content: 'keywords';
+}
+
+article.fulltext .affiliation {
+  display: block;
+  font-style: italic;
+}
+
+/* Text */
+
+article.fulltext h1,
+article.fulltext h2,
+article.fulltext h3,
+article.fulltext h4,
+article.fulltext h5,
+article.fulltext h6 {
+  font-weight: bold;
+  line-height: 1;
+}
+
+article.fulltext h1 { font-size: 1.5em; }
+article.fulltext h2 { font-size: 1.17em; }
+article.fulltext h3 { font-size: 1.12em; }
+article.fulltext h4 { font-size: .83em; }
+article.fulltext h5 { font-size: .75em; }
+article.fulltext h6 { font-size: .66em; }
+
+article.fulltext a {
+  color: SteelBlue;
+  text-decoration: none;
+}
+
+article.fulltext a:hover {
+  text-decoration: underline;
+}
+
+article.fulltext section p {
+  margin-right: 4em;
+}
+
+article.fulltext blockquote {
+  font-size: .9em;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+}
+
+article.fulltext ul,
+article.fulltext ol {
+  margin-right: 2.5em;
+}
+
+/* Paragraph numbers */
+
+article.fulltext .parnum {
+  font-size: .9em;
+  float: right;
+  clear: both;
+  color: gray;
+}
+
+article.fulltext .parnum p::before,
+article.fulltext p.parnum::before {
+  content: '[';
+}
+
+article.fulltext .parnum p::after,
+article.fulltext p.parnum::after {
+  content: ']';
+}
+
+article.fulltext .parnum p,
+article.fulltext p.parnum {
+  margin: 0;
+}
+
+article.fulltext blockquote .parnum {
+  font-size: 1em;
+  margin-right: -2.5em;
+}
+
+/* References and Footnotes */
+
+article.fulltext #refs p {
+  text-indent: -2.5em;
+  padding-left: 2.5em;
+  margin-right: 0;
+}
+
+article.fulltext .footnotes li p {
+  margin-right: 0;
+}
+
+/* Mobile media */
+
+@media (max-width: 760px) {
+
+  article.fulltext {
+    font-size: 16px;
+  }
+
+  article.fulltext #title-block .logo img {
+    height: 3em;
+  }
+
+  article.fulltext #title-block .smallprint,
+  article.fulltext #title-block .smallprint > div {
+    display: block;
+  }
+
+  article.fulltext #title-block .journal {
+    text-align: left;
+  }
+
+  article.fulltext #title-block .license-badge img {
+    width: 60px;
+  }
+
+  article.fulltext section p {
+    margin-right: 2em;
+  }
+
+}
