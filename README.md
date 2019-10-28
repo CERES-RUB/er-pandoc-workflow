@@ -55,6 +55,14 @@ Der Text ist deutsch.
 This is an English sentence with parts [auf Deutsch]{lang="de"}.
 ```
 
+Falls für die LaTeX-Ausgabe der jeweiligen Sprachen zusätzlich Schriftarten notwendig sind, werden diese in der Regel automatisch geladen. Für Arabisch, Hebräisch, Griechisch und Syrisch sind Schriften im LaTeX-Template definiert, weitere müssen u.U. ergänzt werden.
+
+Eine Ausnahme sind CJK-Schriften wie Chinesisch. Da hierfür ein zusätzliches Paket geladen werden muss, das relativ weitreichend in den Textsatz eingreift, muss dies explizit in den Metadaten definiert werden:
+
+```yaml
+CJKmainfont: Noto Serif CJK TC
+```
+
 ### Abbildungen und Tabellen
 
 Abbildungen werden als „gleitende Objekte“ gesetzt, das heißt sie haben keinen festen Platz, sondern werden günstig (meist oben auf einer Seite) gesetzt. Im Text sollte daher immer über eine Nummer auf die Abbildung verwiesen werden. Dazu wird eine ID vergeben, die immer mit `fig:` anfängt:
