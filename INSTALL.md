@@ -32,3 +32,16 @@ wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-1-amd64.
 
 sudo dpkg -i pandoc-2.7.3-1-amd64.deb
 ```
+
+Für die automatische Extraktion der Bibliographie muss zudem [anystyle](https://github.com/inukshuk/anystyle/) installiert werden:
+
+```bash
+cat >> ~/.bashrc <<EOF
+# Ruby/Gems settings
+export GEM_HOME="\${HOME}/.local/lib/gems"
+export PATH="\$GEM_HOME/bin:\$PATH"
+EOF
+source ~/.bashrc
+
+gem install anystyle-cli
+```

@@ -2,6 +2,9 @@
 
 INFILE="$1"
 OUTFILE="${INFILE%.*}.md"
+TXTFILE="${INFILE%.*}.txt"
+CSLDIR="$(dirname "$TXTFILE")"
+FILTERS="filters"
 
 if [ -f "$OUTFILE" ]; then
     echo "Output file $OUTFILE already exists, doing nothing."
@@ -25,3 +28,15 @@ else
     echo "error!"
     exit $status
 fi
+
+echo "Extracting citations ... "
+
+pandoc "$INFILE" \
+    --output "$TXTFILE" \
+    --to markdown-smart \
+    --wrap none \
+    --filter "$FILTERS"/plaintext.py \
+&& anystyle -f bib find "$TXTFILE" "$CSLDIR" \
+&& rm "$TXTFILE" \
+&& echo "done." \
+|| echo "error!"

@@ -14,3 +14,5 @@ fonts-sil-scheherazade
 fonts-noto
 python3-pip
 xsltproc
+ruby
+ruby-dev
