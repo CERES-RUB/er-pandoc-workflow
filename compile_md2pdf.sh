@@ -29,7 +29,6 @@ function build_tex {
         --filter pandoc-fignos \
         --filter pandoc-tablenos \
         --filter pandoc-citeproc \
-        --filter "$FILTERS"/hangbib.py \
         --csl "$TEMPLATE"/entangled-religions.csl \
         --metadata "reference-section-title=References" \
         --metadata "link-citations" \

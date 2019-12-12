@@ -28,7 +28,7 @@ pip3 install --user -r requirements.txt
 Nun muss noch pandoc installiert werden:
 
 ```bash
-wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-1-amd64.deb
+wget https://github.com/jgm/pandoc/releases/download/2.8.1/pandoc-2.8.1-1-amd64.deb
 
 sudo dpkg -i pandoc-2.7.3-1-amd64.deb
 ```
