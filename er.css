@@ -193,6 +193,21 @@ article.fulltext blockquote .parnum {
   margin-right: -2.5em;
 }
 
+/* Page numbers */
+
+article.fulltext .pagenum {
+    font-size: .9em;
+    color: gray;
+}
+
+article.fulltext .pagenum::before {
+    content: '[page ';
+}
+
+article.fulltext .pagenum::after {
+    content: ']';
+}
+
 /* References and Footnotes */
 
 article.fulltext #refs p {
