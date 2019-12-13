@@ -137,6 +137,18 @@ The author thanks …
 :::
 ```
 
+### Zitate
+
+Blockzitate stellen in pandoc immer einen eigenen Absatz dar. Daher ist es nicht ohne weiteres möglich, Blockzitate zu definieren, die Teil des umgebenden Absatzes sind. Es ist aber möglich, die folgende Einrückung im PDF zu unterdrücken:
+
+```markdown
+Das ist ein Text.
+
+> Hier ist ein Zitat
+
+\noindent das viel Aufschluss gibt.
+```
+
 ## Bibliographie
 
 ### Zotero
