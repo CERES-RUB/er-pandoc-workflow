@@ -35,8 +35,11 @@ def test_para(elem):
     if ancestorisinstance(elem, (Table, Note, MetaBlocks)):
         return False
     # not within .noparnums class
-    if isinstance(elem.parent, Div) and 'noparnums' in elem.parent.classes:
-        return False
+    thiselem = elem
+    while thiselem.parent:
+        if isinstance(thiselem.parent, Div) and 'noparnums' in thiselem.parent.classes:
+            return False
+        thiselem = thiselem.parent
     # and no figures
     if len(elem.content) == 1 and isinstance(elem.content[0], Image):
         return False
