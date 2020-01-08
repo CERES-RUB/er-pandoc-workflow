@@ -477,10 +477,6 @@ $endif$
 %% No additional space between sentences
 \frenchspacing
 
-$if(title)$
-$if(beamer)$
-\frame{\titlepage}
-$else$
 \cleardoubleoddpage
 \thispagestyle{empty}
 \begin{singlespace}
@@ -510,11 +506,18 @@ $if(license)$License:~$if(license-label)$\href{$license$}{$license-label$}$else$
 
 %% Title
 \vspace*{2\baselineskip}
+$if(title)$
 {\usekomafont{title}\LARGE\noindent\raggedright $title$\par}
 $if(subtitle)$
 \vspace*{.5\baselineskip}
 {\usekomafont{subtitle}\Large\noindent\raggedright $subtitle$\par}
 $endif$
+\vspace{2\baselineskip}
+$elseif(reviewed-title)$
+{\usekomafont{title}\LARGE\noindent\raggedright $reviewed-title$$if(reviewed-author)$, {\normalfont\itshape written by} $elseif(reviewed-editor)$, {\normalfont\itshape edited by} $endif$\normalfont
+$for(reviewed-author)$$it$$sep$, $endfor$
+$for(reviewed-editor)$$it$$sep$, $endfor$
+\par}
 \vspace{2\baselineskip}
 $endif$
 $for(author)$
@@ -547,7 +550,6 @@ $endif$
 \end{tabular}
 \end{quote}
 \vspace{1.8181\baselineskip} % Since we altered line spacing, we need to adjust the vspace here.
-$endif$
 $endif$
 
 $for(include-before)$

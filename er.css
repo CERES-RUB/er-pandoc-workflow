@@ -89,6 +89,15 @@ article.fulltext h1.title {
   margin-top: 2em;
 }
 
+article.fulltext h1.title .infix {
+  font-weight: normal;
+  font-style: italic;
+}
+
+article.fulltext h1.title .creator {
+  font-weight: normal;
+}
+
 article.fulltext h2.subtitle {
   font-size: 1.6em;
   font-weight: normal;
