@@ -72,6 +72,11 @@ def enumerate_paragraphs(elem, doc):
             extra_content = [latex(r'\leavevmode\marginpar{\textcolor{parnum}{'),
                              parnum,
                              latex(r'}}')]
+            # If content begins with raw LaTeX, move this before the extra content.
+            # This is required e.g. for a \noindent command to work.
+            if isinstance(elem, Para) and isinstance(elem.content[0], RawInline):
+                raw = elem.content.pop(0)
+                extra_content.insert(0, raw)
         else:
             extra_content = [parnum]
         if isinstance(elem, (BulletList, OrderedList)):
