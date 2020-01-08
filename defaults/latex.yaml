@@ -1,0 +1,17 @@
+to: latex
+pdf-engine: xelatex
+template: template/er_template.tex
+default-image-extension: ".pdf"
+variables:
+    documentclass: scrartcl
+    classoption:
+        - a4paper
+        - DIV=12
+        - footlines=2.1
+        - usegeometry=true
+    mainfont: Charis SIL
+    sansfont: Charis SIL Compact
+    indent: true
+    linestretch: 1.1
+    colorlinks: true
+    linkcolor: NavyBlue

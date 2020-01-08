@@ -1,0 +1,8 @@
+to: html5
+standalone: true
+section-divs: true
+template: template/er_template.html
+default-image-extension: ".svg"
+css: https://er.ceres.rub.de/public/journals/2/styleSheet.css
+variables:
+    img-prefix: https://static.ceres.rub.de/er/images/

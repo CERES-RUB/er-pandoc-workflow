@@ -1,0 +1,14 @@
+variables:
+    indent:
+metadata:
+    reference-section-title: References
+    link-citations: true
+    csl: template/entangled-religions.csl
+filters:
+    - filters/licensebadge.py
+    - filters/parnums.py
+    - filters/tablewidth.py
+    - filters/conditionalspans.py
+    - pandoc-fignos
+    - pandoc-tablenos
+    - pandoc-citeproc
