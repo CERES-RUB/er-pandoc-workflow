@@ -16,3 +16,4 @@ python3-pip
 xsltproc
 ruby
 ruby-dev
+wget
