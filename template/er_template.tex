@@ -319,7 +319,7 @@ $endif$
 $if(header)$
 \lohead{\textsc{$header$}}
 $endif$
-\rohead{\textit{Entangled Religions} $if(volume)$$volume$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$}
+\rohead{\textit{Entangled Religions} $if(volume)$$volume$$if(issue)$.$issue$$endif$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$}
 %\cofoot[]{\thepage}
 \cofoot[]{}
 
@@ -500,7 +500,7 @@ $if(license)$License:~$if(license-label)$\href{$license$}{$license-label$}$else$
 \begin{minipage}[c]{.4\textwidth}
 \scriptsize
 \raggedleft
-\textit{Entangled Religions} $if(volume)$$volume$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$\\
+\textit{Entangled Religions} $if(volume)$$volume$$if(issue)$.$issue$$endif$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$\\
 \href{https://er.ceres.rub.de/}{er.ceres.rub.de}
 \end{minipage}
 
