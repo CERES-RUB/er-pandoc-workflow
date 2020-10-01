@@ -3,6 +3,7 @@
 INFILE="$1"
 OUTFILE="${INFILE%.*}.md"
 TXTFILE="${INFILE%.*}.txt"
+BIBFILE="${INFILE%.*}.bib"
 CSLDIR="$(dirname "$TXTFILE")"
 FILTERS="filters"
 
@@ -39,4 +40,11 @@ pandoc "$INFILE" \
 && anystyle -f bib find "$TXTFILE" "$CSLDIR" \
 && rm "$TXTFILE" \
 && echo "done." \
+|| echo "error!"
+
+echo "Identifying languages in citations ... "
+
+python3 filters/biblang.py "$BIBFILE" -o "$BIBFILE.tmp" \
+&& mv "$BIBFILE.tmp" "$BIBFILE" \
+&& echo "done."\
 || echo "error!"
