@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """
 Pandoc’s plain text output still contains some formatting. Remove inline formatting.

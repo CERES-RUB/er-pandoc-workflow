@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """
 A pandoc filter that allows to explicitly set the column widths for tables.
