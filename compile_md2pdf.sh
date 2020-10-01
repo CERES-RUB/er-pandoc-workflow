@@ -15,7 +15,7 @@ function build_tex {
         --output "$2" \
         --defaults "defaults/common.yaml" \
         --defaults "defaults/latex.yaml" \
-        --resource-path "$BASEPATH" \
+        --resource-path ".:$BASEPATH" \
     && echo "done." \
     || echo "error!"
 
@@ -30,7 +30,7 @@ function build_html {
     pandoc "$1" \
         --defaults "defaults/common.yaml" \
         --defaults "defaults/html.yaml" \
-        --resource-path "$BASEPATH" \
+        --resource-path ".:$BASEPATH" \
     | xsltproc --nonet --novalid \
         filters/linktitles.xsl - \
     | xsltproc --nonet --novalid \
