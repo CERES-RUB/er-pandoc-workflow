@@ -523,9 +523,9 @@ $endif$
 $for(author)$
 $if(author.name)$
 {\usekomafont{author}\noindent $author.name$$if(author.orcid)$\hspace{.25em}\href{$author.orcid$}{\includegraphics[height=1em]{orcid_iD.pdf}}$endif$\par}
-$if(author.affiliation)$
+$for(author.affiliation)$
 {\usekomafont{author}\normalfont\itshape\normalsize\noindent $author.affiliation$\par}
-$endif$
+$endfor$
 $else$
 {\usekomafont{author}$author$\par}
 $endif$

@@ -77,9 +77,9 @@ $for(author)$
 <p class="author">
 $if(author.name)$
 $author.name$$if(author.orcid)$ <a href="$author.orcid$" target="_blank" title="$author.orcid$"><img style="height:1em;" src="$img-prefix$orcid_iD.svg"/></a>$endif$
-$if(author.affiliation)$
+$for(author.affiliation)$
 <span class="affiliation">$author.affiliation$</span>
-$endif$
+$endfor$
 $else$
 $author$
 $endif$
