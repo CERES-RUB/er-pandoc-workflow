@@ -159,3 +159,17 @@ In den Einstellungen unter *Bearbeiten → Einstellungen → Better BibTeX* wird
 
 Zitierschlüssel sollten für alle Einträge angepinnt werden (*Rechtsklick → Better BibTeX → BibTeX-Key anheften*).
 
+### Zotero Korrektur importierter Titel anhand der Reference List der Autor_innen
+
+Die folgenden Korrekturen werden zurzeit von ER HiWis übernommen:
+
+* Überprüfen, ob alle Einträge der Literaturliste auch im Zotero Ordner vorhanden sind
+* Eintragsart überprüfen - wurde der Eintrag richtig zugeordnet? (Journalartikel, Sammelbandartikel, Monographie?)
+* Richtigkeit aller Felder überprüfen
+* Groß- und Kleinschreibung aller Felder überprüfen (oft werden alle Wörter kleingeschrieben importiert)
+* Sprachfeld ausfüllen (wichtig!) --> bitte die Sprachfelder aller Einträge ausfüllen, besonders wichtig ist dabei, dass nicht-englische Einträge per Sprachfeld definiert werden (oft: Deutsch, Französisch, Italienisch)
+
+* Bei Unklarheiten und fehlenden Informationen werden einzelne Titel zurzeit eigenständig recherchiert, sofern möglich (via Google oder bibliographische Datenbanken). Dabei liegt es im eigenen Ermessen, ob alternativ offene Fragen an den/die Autor_in zurückgegeben werden.
+
+* Wenn Unklarheiten nicht geklärt werden können, wird zurzeit eine Notiz an den entsprechenden Zotero-Eintrag angefügt, die das Problem für die Managing Editor beschreibt und die originale, von Autor_innen eingereichte, Reference enthält. 
+
