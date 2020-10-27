@@ -173,6 +173,10 @@ article.fulltext ol {
   margin-right: 2.5em;
 }
 
+article.fulltext [dir=rtl] {
+  text-align: right;
+}
+
 /* Paragraph numbers */
 
 article.fulltext .parnum {
