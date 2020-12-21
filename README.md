@@ -26,8 +26,9 @@ cd /mnt/c/Users/USERNAME/sciebo/ER_Workflow/
 
 ### Bereinigung
 
-1. **Kopfdaten**  Jedem Markdown-Dokument muss ein Satz mit Kopfdaten vorangestellt werden. Ein Beispielsatz der erforderlichen Felder findet sich in der Datei `template/metadata.md`.
+1. **Kopfdaten** Jedem Markdown-Dokument muss ein Satz mit Kopfdaten vorangestellt werden. Ein Beispielsatz der erforderlichen Felder findet sich in der Datei `template/metadata.md`.
 2. **Literaturverweise** Die Literaturverweise im Dokument werden durch Referenzen auf die Zotero-Datenbank ersetzt. *Noch ausarbeiten!*
+3. **CMoS** Der Text wird, falls nicht zuvor geschehen, an den Chicago Style (author-date) angepasst.
 
 Darüberhinaus sollte allgemein überprüft werden, ob die Formatierungen richtig übernommen wurden, und ggf. das Markdown mit den untenstehenden Funktionen angepasst werden.
 
@@ -55,9 +56,9 @@ Der Text ist deutsch.
 This is an English sentence with parts [auf Deutsch]{lang="de"}.
 ```
 
-Falls für die LaTeX-Ausgabe der jeweiligen Sprachen zusätzlich Schriftarten notwendig sind, werden diese in der Regel automatisch geladen. Für Arabisch (lang="ar"), Hebräisch (lang="he"), Griechisch (lang="el") und Syrisch (lang="syr") sind Schriften im LaTeX-Template definiert, weitere müssen u.U. ergänzt werden.
+Falls für die LaTeX-Ausgabe der jeweiligen Sprachen zusätzlich Schriftarten notwendig sind, werden diese in der Regel automatisch geladen. Für Arabisch (lang="ar"), Hebräisch (lang="he"), Griechisch (lang="el"), Coptisch (lang="cop"), Ge'ez (lang="am") und Syrisch (lang="syr") sind Schriften im LaTeX-Template definiert, weitere müssen u.U. ergänzt werden.
 
-Eine Ausnahme sind CJK-Schriften wie Chinesisch. Da hierfür ein zusätzliches Paket geladen werden muss, das relativ weitreichend in den Textsatz eingreift, muss dies explizit in den Metadaten definiert werden:
+Eine Ausnahme sind CJK-Schriften wie Chinesisch. Da hierfür ein zusätzliches Paket geladen werden muss, das relativ weitreichend in den Textsatz eingreift, muss dies explizit in den Metadaten definiert werden (wie zum Beispiel im Artikel von Santangelo):
 
 ```yaml
 CJKmainfont: Noto Serif CJK TC
@@ -155,21 +156,35 @@ Das ist ein Text.
 
 Die Literaturangaben aller Artikel werden in einer gemeinsamen Zotero-Bibliothek verwaltet. Um die Konsistenz zwischen verschiedenen Bearbeitenden sicherzustellen, wird zusätzlich das Plugin [Better BibTeX](https://retorque.re/zotero-better-bibtex/) verwendet.
 
-In den Einstellungen unter *Bearbeiten → Einstellungen → Better BibTeX* wird folgendes Format für den Zitierschlüssel eingestellt: `[auth:lower]_[veryshorttitle:lower]_[year]`
+In den Einstellungen unter *Bearbeiten → Einstellungen → Better BibTeX* wird folgendes Format für den Zitierschlüssel eingestellt: `[auth]_[shorttitle1]_[year]`
 
 Zitierschlüssel sollten für alle Einträge angepinnt werden (*Rechtsklick → Better BibTeX → BibTeX-Key anheften*).
 
 ### Zotero Korrektur importierter Titel anhand der Reference List der Autor_innen
 
-Die folgenden Korrekturen werden zurzeit von ER HiWis übernommen:
+Die folgenden Korrekturen werden zurzeit von ER HiWis übernommen (kann auch als Anleitung für neue HiWis dienen):
 
 * Überprüfen, ob alle Einträge der Literaturliste auch im Zotero Ordner vorhanden sind
 * Eintragsart überprüfen - wurde der Eintrag richtig zugeordnet? (Journalartikel, Sammelbandartikel, Monographie?)
 * Richtigkeit aller Felder überprüfen
 * Groß- und Kleinschreibung aller Felder überprüfen (oft werden alle Wörter kleingeschrieben importiert)
 * Sprachfeld ausfüllen (wichtig!) --> bitte die Sprachfelder aller Einträge ausfüllen, besonders wichtig ist dabei, dass nicht-englische Einträge per Sprachfeld definiert werden (oft: Deutsch, Französisch, Italienisch)
-
 * Bei Unklarheiten und fehlenden Informationen werden einzelne Titel zurzeit eigenständig recherchiert, sofern möglich (via Google oder bibliographische Datenbanken). Dabei liegt es im eigenen Ermessen, ob alternativ offene Fragen an den/die Autor_in zurückgegeben werden.
-
 * Wenn Unklarheiten nicht geklärt werden können, wird zurzeit eine Notiz an den entsprechenden Zotero-Eintrag angefügt, die das Problem für die Managing Editor beschreibt und die originale, von Autor_innen eingereichte, Reference enthält. 
+* Bei Autor 2020a, Autor 2020b etc in der Autorenbibliographie: Bitte einen Vermerk ins "Extra Feld" machen, damit die References beim Textsatz leichter zuzuordnen sind.
 
+### Sonderfälle in Zotero (Formatierung)
+
+Manchmal muss bei einzelnen Titeln die Formatierung in Zotero korrigiert werden, beispielsweise bei Kursivierungen im Titel, etc. Dies geschieht durch HTML Codes. 
+
+* Kursiv <i>
+* Fett <b>                    
+* Sprache nicht übertragen (relevant für die richtige Groß- und Kleinschreibung in der Ausgabe): <span class="nocase">Introduction to religious studies:</span> Einführung in die Religionswissenschaft
+
+Für weitere Ausnahmen und Beispiele, siehe Adrians super Dokumentation im Ordner Hiwis/Praktikanten. Die könnte in Teilen auch eine gute Handreichung für neue HiWis sein.
+
+## Sonderfälle mit Artikelbeispielen
+
+* Appendix soll nach der Reference List erscheinen: Santangelo, Dege-Müller_Karlsson
+* komplexere Tabellen: Stadlbauer
+* Sprachen: Coptisch (Colditz), Chinesisch (Santangelo, Deeg), Ge'ez (Dege-Müller_Karlsson)
