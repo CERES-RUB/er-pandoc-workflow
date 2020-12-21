@@ -83,10 +83,19 @@ article.fulltext #title-block .license-badge img {
 }
 
 /* Header */
+article.fulltext p.section {
+  font-weight: bold;
+  margin-top: 2em;
+}
 
 article.fulltext h1.title {
   font-size: 2em;
   margin-top: 2em;
+}
+
+/* If section before title, reduce top margin */
+article.fulltext p.section + hgroup h1.title {
+  margin-top: 1em;
 }
 
 article.fulltext h1.title .infix {

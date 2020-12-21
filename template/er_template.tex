@@ -509,6 +509,10 @@ $if(license)$License:~$if(license-label)$\href{$license$}{$license-label$}$else$
 
 %% Title
 \vspace*{2\baselineskip}
+$if(section)$
+{\usekomafont{author}\normalfont\bfseries\noindent $section$\par}
+\vspace*{\baselineskip}
+$endif$
 $if(title)$
 {\usekomafont{title}\LARGE\noindent\raggedright $title$\par}
 $if(subtitle)$
