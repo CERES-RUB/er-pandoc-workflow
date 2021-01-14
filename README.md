@@ -179,7 +179,7 @@ Manchmal muss bei einzelnen Titeln die Formatierung in Zotero korrigiert werden,
 
 * Kursiv <i>
 * Fett <b>                    
-* Sprache nicht übertragen (relevant für die richtige Groß- und Kleinschreibung in der Ausgabe): <span class="nocase">Introduction to religious studies:</span> Einführung in die Religionswissenschaft
+* Sprache nicht übertragen (relevant für die richtige Groß- und Kleinschreibung in der Ausgabe): Introduction to religious studies: <span class="nocase">Einführung in die Religionswissenschaft</span> (Wenn hier im Sprachenfeld Englisch definiert ist, würde ohne den "nocase" Befehl die Ausgabe "Einführung In Die Religionswissenschaft" ergeben (da headline style).
 
 Für weitere Ausnahmen und Beispiele, siehe Adrians super Dokumentation im Ordner Hiwis/Praktikanten. Die könnte in Teilen auch eine gute Handreichung für neue HiWis sein.
 
@@ -188,3 +188,4 @@ Für weitere Ausnahmen und Beispiele, siehe Adrians super Dokumentation im Ordne
 * Appendix soll nach der Reference List erscheinen: Santangelo, Dege-Müller_Karlsson
 * komplexere Tabellen: Stadlbauer
 * Sprachen: Coptisch (Colditz), Chinesisch (Santangelo, Deeg), Ge'ez (Dege-Müller_Karlsson)
+* kleinere Literaturlisten, die nicht über Zotero gepflegt werden, aber im gleichen Format erscheinen sollen (ab zweiter Zeile eingerückt), zum Beispiel Archivmaterial oder Diskographie: Dege-Müller_Karlsson, siehe auch Viehbeck
