@@ -9,6 +9,7 @@ filters:
     - filters/parnums.py
     - filters/tablewidth.py
     - filters/conditionalspans.py
+    - filters/hangbib.py
     - pandoc-fignos
     - pandoc-tablenos
     - pandoc-citeproc
