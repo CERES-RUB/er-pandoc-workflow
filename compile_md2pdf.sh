@@ -5,6 +5,11 @@ if [ -z "$1" ]; then
     exit -1
 fi
 
+
+DIR=$(dirname $0)
+
+cd $DIR
+
 function build_tex {
 
     echo "Creating file $2 ... "

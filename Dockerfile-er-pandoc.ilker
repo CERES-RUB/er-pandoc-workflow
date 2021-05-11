@@ -1,0 +1,56 @@
+FROM ubuntu:20.04
+WORKDIR /data
+ENV DEBIAN_FRONTEND noninteractive
+COPY . /data
+RUN apt-get -q --no-allow-insecure-repositories update \
+	&& apt-get install --assume-yes \
+texlive \
+texlive-base \
+texlive-latex-recommended \
+texlive-latex-extra \
+texlive-xetex \
+texlive-fonts-recommended \
+texlive-lang-english \
+texlive-lang-german \
+texlive-lang-arabic \
+texlive-lang-chinese \
+fonts-sil-charis \
+fonts-sil-charis-compact \
+fonts-sil-gentiumplus \
+fonts-freefont-otf \
+fonts-sil-scheherazade \
+fonts-noto \
+python3-pip \
+xsltproc \
+ruby \
+ruby-dev \
+wget \
+vim \
+unzip 
+# \
+#	&& rm -rf /var/lib/apt/lists/*
+
+RUN apt install -y gcc make
+
+
+RUN pip3 install --user -r requirements.txt
+
+RUN pip3 install \
+		pandoc-fignos==2.2 \
+		pandoc-tablenos==2.1 \
+		panflute==1.12
+
+RUN wget https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-1-amd64.deb
+RUN dpkg -i pandoc-2.9.2.1-1-amd64.deb
+RUN rm pandoc-2.9.2.1-1-amd64.deb
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+RUN ./install-anystyle.sh
+
+RUN apt install fontconfig
+
+COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
+RUN fc-cache
+
+

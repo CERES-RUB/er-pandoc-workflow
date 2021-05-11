@@ -18,7 +18,7 @@ RUN pip3 install \
 		pandoc-tablenos==2.1 \
 		panflute==1.12
 
-RUN tlmgr update --self &&tlmgr install footmisc
+#RUN tlmgr update --self &&tlmgr install footmisc
 
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache

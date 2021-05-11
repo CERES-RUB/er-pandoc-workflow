@@ -6,6 +6,7 @@ texlive-fonts-recommended
 texlive-lang-english
 texlive-lang-german
 texlive-lang-arabic
+texlive-lang-chinese
 fonts-sil-charis
 fonts-sil-charis-compact
 fonts-sil-gentiumplus
@@ -17,3 +18,5 @@ xsltproc
 ruby
 ruby-dev
 wget
+vim
+unzip
