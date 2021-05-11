@@ -66,7 +66,7 @@ CJKmainfont: Noto Serif CJK TC
 
 ### Abbildungen und Tabellen
 
-Abbildungen werden als „gleitende Objekte“ gesetzt, das heißt sie haben keinen festen Platz, sondern werden günstig (meist oben auf einer Seite) gesetzt. Im Text sollte daher immer über eine Nummer auf die Abbildung verwiesen werden. Dazu wird eine ID vergeben, die immer mit `fig:` anfängt:
+Abbildungen werden als „gleitende Objekte“ gesetzt, das heißt sie haben keinen festen Platz, sondern werden günstig (meist oben auf einer Seite) gesetzt. Im Text sollte daher immer über eine Nummer auf die Abbildung verwiesen werden. Es kann im Falle von Sonderzeichen wie öffnenden (einfachen) Anführungszeichen, die (fälschlicherweise) in Transliterationen wie *‘Arabah*  verwendet werden, passieren, dass eine Bildreferenz nicht richtig erkannt wird. In diesem Falle muss darauf geachtet werden, das problemverursachende Sonderzeichen via `\` zu escapen (in diesem Beispiel also *‘Arabah* durch *\\‘Arabah* zu ersetzen). Um im Text auf die Nummer der Abbildung zu verweisen, wird eine ID vergeben, die immer mit `fig:` anfängt:
 
 ```markdown
 See figure @fig:afigure.
