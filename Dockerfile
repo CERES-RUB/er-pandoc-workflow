@@ -1,5 +1,7 @@
 FROM pandoc/ubuntu-latex:2.9.2.1
+
 WORKDIR /data
+
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -q --no-allow-insecure-repositories update \
 	&& apt-get install --assume-yes --no-install-recommends \
@@ -20,7 +22,11 @@ RUN pip3 install \
 
 RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2020/tlnet-final \
     && tlmgr update --self \
-    && tlmgr install footmisc
+    && tlmgr install footmisc \
+                     zref
 
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache
+
+COPY . /data
+ENTRYPOINT ["/data/compile_md2pdf.sh"]

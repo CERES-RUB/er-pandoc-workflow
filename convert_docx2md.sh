@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DIR=$(dirname $0)
+cd $DIR
+
 INFILE="$1"
 OUTFILE="${INFILE%.*}.md"
 TXTFILE="${INFILE%.*}.txt"
