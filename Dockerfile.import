@@ -1,0 +1,24 @@
+FROM pandoc/ubuntu:2.9.2.1
+
+WORKDIR /data
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get -q --no-allow-insecure-repositories update \
+	&& apt-get install --assume-yes --no-install-recommends \
+		ruby \
+		ruby-dev \
+		gcc \
+		make \
+		libc6-dev \
+		python3-pip \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install \
+		bibtexparser==1.2.0 \
+		langid==1.1.6 \
+		panflute==1.12
+
+RUN gem install anystyle-cli
+
+COPY . /data
+ENTRYPOINT ["/data/convert_docx2md.sh"]
