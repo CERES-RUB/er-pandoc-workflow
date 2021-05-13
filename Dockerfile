@@ -11,6 +11,7 @@ RUN apt-get -q --no-allow-insecure-repositories update \
 		fonts-sil-gentiumplus \
 		fonts-sil-scheherazade \
 		fonts-noto \
+		fonts-noto-cjk \
 		python3-pip \
 		xsltproc \
 	&& rm -rf /var/lib/apt/lists/*
@@ -23,7 +24,8 @@ RUN pip3 install \
 RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2020/tlnet-final \
     && tlmgr update --self \
     && tlmgr install footmisc \
-                     zref
+                     zref \
+                     ctex
 
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache
