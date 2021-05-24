@@ -1,4 +1,4 @@
-FROM pandoc/ubuntu:2.9.2.1
+FROM pandoc/ubuntu:2.13
 
 WORKDIR /data
 
@@ -11,12 +11,16 @@ RUN apt-get -q --no-allow-insecure-repositories update \
 		make \
 		libc6-dev \
 		python3-pip \
+		git \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install \
 		bibtexparser==1.2.0 \
 		langid==1.1.6 \
-		panflute==1.12
+		git+https://github.com/sergiocorreia/panflute.git@a253315d5ae64018ea9c3ccbd4d5aec26b374a48#egg=panflute
+
+# panflute 2.1.0 is not yet on pypi.
+# remember to remove git from apt above when this is resolved.
 
 RUN gem install anystyle-cli
 
