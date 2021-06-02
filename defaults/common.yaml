@@ -12,4 +12,4 @@ filters:
     - filters/hangbib.py
     - pandoc-fignos
     - pandoc-tablenos
-    - pandoc-citeproc
+    - citeproc

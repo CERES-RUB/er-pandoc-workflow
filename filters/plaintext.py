@@ -7,7 +7,7 @@ Pandoc’s plain text output still contains some formatting. Remove inline forma
 from panflute import *
 
 def plaintext(elem, doc):
-    if isinstance(elem, (Emph, Strong)):
+    if isinstance(elem, (Emph, Strong, Underline)):
         return list(elem.content)
 
 def main(doc=None):

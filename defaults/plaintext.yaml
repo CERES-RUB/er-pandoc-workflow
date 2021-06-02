@@ -1,0 +1,4 @@
+to: plain
+wrap: none
+filters:
+    - filters/plaintext.py

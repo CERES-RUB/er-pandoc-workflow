@@ -20,10 +20,7 @@ echo "Creating file $OUTFILE ... "
 
 pandoc "$INFILE" \
     --output "$OUTFILE" \
-    --to markdown-smart \
-    --wrap none \
-    --atx-headers \
-    --reference-location block
+    --defaults "defaults/markdown.yaml"
 
 status=$?
 if [ $status -eq 0 ]; then
@@ -37,9 +34,7 @@ echo "Extracting citations ... "
 
 pandoc "$INFILE" \
     --output "$TXTFILE" \
-    --to markdown-smart \
-    --wrap none \
-    --filter "$FILTERS"/plaintext.py \
+    --defaults "defaults/plaintext.yaml" \
 && anystyle -f bib find "$TXTFILE" "$CSLDIR" \
 && rm "$TXTFILE" \
 && echo "done." \

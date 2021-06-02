@@ -1,0 +1,4 @@
+to: markdown-smart
+wrap: none
+markdown-headings: atx
+reference-location: block
