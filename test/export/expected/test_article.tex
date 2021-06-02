@@ -1,0 +1,1061 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  english,
+  a4paper,
+  DIV=12,
+  footlines=2.1,
+  usegeometry=true]{scrartcl}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Charis SIL}
+  \setsansfont[]{Charis SIL Compact}
+  \ifxetex
+    \usepackage[space]{xeCJK}
+    \setCJKmainfont[]{Noto Serif CJK TC}
+  \fi
+  \ifluatex
+    \usepackage[]{luatexja-fontspec}
+    \setmainjfont[]{Noto Serif CJK TC}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Horrordatei zum Testen vom neuen Textsatz},
+  pdflang={en},
+  pdfkeywords={Entangled Religions, religious contact, Markdown, OES},
+  colorlinks=true,
+  linkcolor=NavyBlue,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+
+% Page style, header and footer
+\usepackage[headsepline]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\lohead{\textsc{Reiker -- Horrordatei zum Testen vom neuen Textsatz}}
+\rohead{\textit{Entangled Religions} 9 (2019)}
+%\cofoot[]{\thepage}
+\cofoot[]{}
+
+%% ER Settings
+%% Page margin
+
+% We don’t use the page foot except on the first page.
+% This leads to a large bottom margin on most pages.
+% To solve this, we’re setting the bottom margin manually
+% and set footskip to 0pt. This completely merges the
+% foot into the text area.
+% We’re then using \enlargethispage{-5\baselineskip} to
+% create space for the foot on the first page.
+\usepackage[bottom=2.8cm,footskip=0pt]{geometry}
+
+%% Force loading of required packages
+\usepackage{booktabs,graphicx}
+
+%% Bookmarks/Outline
+\usepackage{bookmark}
+
+%% Text settings
+\tolerance=1000
+\widowpenalty=10000
+\clubpenalty=10000
+
+%% Colors
+\definecolor{parnum}{gray}{0.5}
+
+%% Figure captions
+\KOMAoptions{captions=tableabove}
+\addtokomafont{caption}{\normalfont\small}
+\addtokomafont{captionlabel}{\bfseries}
+\renewcommand*{\captionformat}{\quad}
+
+%% page headings
+\setkomafont{pageheadfoot}{%
+\normalfont\normalcolor\small}
+\setkomafont{author}{\large\scshape}
+\setkomafont{date}{\large}
+
+%% languages/scripts
+\newfontfamily\hebrewfont[Script=Hebrew]{FreeSerif}
+\newfontfamily\arabicfont[Script=Arabic]{Scheherazade}
+\newfontfamily\syriacfont[Script=Syriac]{Noto Sans Syriac Estrangela}
+\newfontfamily\greekfont[Script=Greek]{Gentium Plus}
+\newfontfamily\copticfont[Script=Coptic]{Noto Sans Coptic}
+\newfontfamily\ethiopicfont[Script=Ethiopic]{Noto Serif Ethiopic}
+\newfontfamily\amharicfont[Script=Ethiopic]{Noto Serif Ethiopic}
+
+%% enumerations
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+
+%% figure positioning
+\makeatletter
+\def\fps@figure{tbp}
+\makeatother
+
+%% set floats above footnotes
+\usepackage[bottom]{footmisc}
+
+%% End ER Settings
+
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+  \setotherlanguage[]{hebrew}
+  \setotherlanguage[]{english}
+  \setotherlanguage[]{syriac}
+  \setotherlanguage[]{arabic}
+\else
+  \usepackage[shorthands=off,hebrew,english,syriac,arabic,main=english]{babel}
+  \newcommand{\texthebrew}[2][]{\foreignlanguage{hebrew}{#2}}
+  \newenvironment{hebrew}[2][]{\begin{otherlanguage}{hebrew}}{\end{otherlanguage}}
+  \newcommand{\textenglish}[2][]{\foreignlanguage{english}{#2}}
+  \newenvironment{english}[2][]{\begin{otherlanguage}{english}}{\end{otherlanguage}}
+  \newcommand{\textsyriac}[2][]{\foreignlanguage{syriac}{#2}}
+  \newenvironment{syriac}[2][]{\begin{otherlanguage}{syriac}}{\end{otherlanguage}}
+  \newcommand{\textarabic}[2][]{\foreignlanguage{arabic}{#2}}
+  \newenvironment{arabic}[2][]{\begin{otherlanguage}{arabic}}{\end{otherlanguage}}
+\fi
+
+%% Footnotes (load after polyglossia!)
+\deffootnote{\leftmargin}{1em}{%
+\makebox[\leftmargin][l]{\thefootnotemark}%
+}
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{\leftmargin}
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+\title{Horrordatei zum Testen vom neuen Textsatz}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Untertitel zur Horrordatei}
+\author{Julia Reiker\\Centrum für Religionswissenschaftliche Studien,
+Ruhr-Universität Bochum}
+\date{}
+
+\begin{document}
+%% No additional space between sentences
+\frenchspacing
+
+\cleardoubleoddpage
+\thispagestyle{empty}
+\begin{singlespace}
+
+%% Logo
+\hfill\includegraphics[height=3\baselineskip]{Logo_ER.pdf}
+\noindent\rule{\textwidth}{\heavyrulewidth}
+
+%% Head
+\vspace*{.2\baselineskip}
+\noindent\begin{minipage}[c]{.13\textwidth}
+\scriptsize
+\parbox{.2\textwidth}{\includegraphics[height=2\baselineskip,width=\csname Gin@nat@width\endcsname,keepaspectratio]{cc-by.pdf}}
+\end{minipage}
+\begin{minipage}[c]{.4\textwidth}
+\scriptsize
+\raggedright
+DOI:~\href{https://doi.org/http://doi.org./10.13154/volume.year.author\_shorttitle}{http://doi.org./10.13154/volume.year.author\_shorttitle}\\
+License:~\href{http://creativecommons.org/licenses/by/4.0/}{Creative
+Commons Attribution 4.0}
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\textwidth}
+\scriptsize
+\raggedleft
+\textit{Entangled Religions} 9 (2019)\\
+\href{https://er.ceres.rub.de/}{er.ceres.rub.de}
+\end{minipage}
+
+%% Title
+\vspace*{2\baselineskip}
+{\usekomafont{title}\LARGE\noindent\raggedright Horrordatei zum Testen
+vom neuen Textsatz\par}
+\vspace*{.5\baselineskip}
+{\usekomafont{subtitle}\Large\noindent\raggedright Untertitel zur
+Horrordatei\par}
+\vspace{2\baselineskip}
+{\usekomafont{author}\noindent Julia Reiker\par}
+{\usekomafont{author}\normalfont\itshape\normalsize\noindent Centrum für
+Religionswissenschaftliche Studien, Ruhr-Universität Bochum\par}
+\vspace{\baselineskip}
+\vspace{2\baselineskip}
+\end{singlespace}
+\begin{quote}
+\small
+\begin{tabular}{@{}p{\linewidth}@{}}
+\toprule
+{\bfseries\scshape abstract}\hspace{1em}Lorem ipsum dolor sit amet,
+consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
+sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\\
+\midrule[\heavyrulewidth]
+{\bfseries\scshape keywords}\hspace{1em}Entangled Religions, religious
+contact, Markdown, OES\\
+\bottomrule
+\end{tabular}
+\end{quote}
+\vspace{1.8181\baselineskip} % Since we altered line spacing, we need to adjust the vspace here.
+
+\setstretch{1.1}
+\hypertarget{beispiel-fuxfcr-andere-sprachen}{%
+\section{Beispiel für andere
+Sprachen}\label{beispiel-fuxfcr-andere-sprachen}}
+
+\begin{hebrew}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}1{]}}}\textenglish{{[}I{]}}(11)
+\ldots{} ותען חנה ות{[}אמר{]}. (12) וגואב דאד חנה וגופת נא סייד זני סכת
+ג͘אן הום מן ונביד ומוסכיר (13) נא הינגיסתום והמי ריזום תהלי גאן מרא פא
+פישי י'י. ותען חנה. תא (14) תא גואב {[}דאדי{]}ש חנה צון ש{[}ניד{]} אין
+רא וגופתיש לא אדני. בֿ ציז (15) גופתיש. יכי גופת נא נא אי סייד נא נא הום
+מסת. דויום המי כואהום (16) שאדי כי {[}היסת?{]} ישראלן רא וליכין אשה קשת
+רוח אנכי. סכת (17) תהליהא וגמי {[}היסת{]} פא דילי מן וכוד יין ˺ושכר ק˹
+לא שתיתי. וצון חנה (18) גופת כוישתן רא קשת רוח אנכי. המצונין גלותיאן רא
+גופת כי (19) כאשה עזובה ועצובת רוח קראך י'י ואשת נעורים. כי תמאס אמר
+(20) אלהיך. וצון כי חנה רא שאד כרד י'י המצונין שאד כונד י'י אין (21)
+גלותיאן רא: \textsuperscript{צ͘ה͘ג͘~ובני~ציון~גילו~ושמחו~וג}͘ ואשפוך את
+נפשי לפני י'י. גופת כי המי ריזום תהלי (22) גאן מן רא פישי י'י תא מוראדי
+מן בידהד. המצונין אין גלות{[}י{]}אן (23) המי גוינד אשפוך לפניו שיחי צרתי
+לפניו וג: אלה אזכרה ואש{[}פכ{]}ה (24) עלי נפשי כי אעבור וג:
+
+\end{hebrew}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}2{]}}}\texthebrew{אלי נאיר
+צהרי ענדי דינ' ואחד} (\emph{ʾly nʾyr ṣhri ʿndi dyn' wʾḥd}), ``I owe my
+brother-in-law Nāyar one dinar'' (TS 20.137, line 2.6). The term
+\emph{ṣihr} refers to in-law in general, and may be either
+father-in-law, brother-in-law or son-in-law. In the case of Aśu, an
+in-law through matrimonial alliance to her could only be her brother,
+for \emph{nāyar}s follow a matrilineal system, where the brother is of
+more significance to the woman's kinship relations than the father
+(Gough 1961, 352-4).
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}3{]}}}This is concurrent
+with the majority of Peshitta manuscripts to this verse:
+``\textsyriac{ܡܫܚܐ ܕܪ̈ܫܝܥܐ ܠܪܝܫܝ ܠܐ ܢܕܗܢ}'', ``\emph{mšḥa d'ryš}‛\emph{a
+lryšy la ndhn}'' (``oil of the wicked will not anoint my head''), and is
+in line with the Septuagint's reading of the verse, too (Carbajosa 2008,
+263).
+
+\begin{Arabic}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}4{]}}}(3) \ldots{} ثم قالوا
+\textbf{كي ايل ديعو{[}ث{]}} (4) \textbf{יי'} وفيه قولان الواحد \ldots{}
+والاخر ان الله عارف الخفيات عن الناس فمن تعاطا الكلام (6) عليها فقد تكلم
+بما ينكره الله عليه وفي مثل ذلك قال داود عليه السلم (7) \textbf{ولوا
+هلاختي بغذولوث وبنيفلاوث مماني}
+
+\end{Arabic}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}5{]}}}This manuscript is
+most likely one of the oldest Karaite manuscripts written in Arabic
+characters. For its description, see Margoliouth 1899, 207-208; Hoerning
+1889, 45-60. For studies concerning Karaite manuscripts of the Bible in
+Arabic characters, see Hoerning 1889, Khan 1990. For the importance of
+the manuscripts of Yefet b. ʿEli's commentaries written in Arabic
+characters, see Ben-Shammai 1976.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}6{]}}}Beispiel für eine
+Aufzählung:
+
+\begin{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}7{]}}}Opening /
+  Introduction (§1--2)
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}8{]}}}Accusation and
+  testimonies from the Old Testament (§3--16)
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    \leavevmode\marginpar{\textcolor{parnum}{{[}9{]}}}Moses and the tent
+    (§6--8)
+  \item
+    Solomon and the first temple (§9)
+  \item
+    Ezechiel and his vision (§10--13)
+  \item
+    Summary of passages from the Old Testament used for the defense of
+    images (§14--16)
+  \end{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}10{]}}}The New Testament
+  (§17--20)
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    \leavevmode\marginpar{\textcolor{parnum}{{[}11{]}}}Paul in Athens
+    (§17--20)
+  \end{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}12{]}}}Church fathers
+  (§21--37)
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    \leavevmode\marginpar{\textcolor{parnum}{{[}13{]}}}John of
+    Constantinople (§21--23) (John Chrysostom)
+  \item
+    Image of Christ in Edessa (§24)
+  \item
+    Bishop Severianos (§25--26)
+  \item
+    Gregory the Illuminator (§27--29)
+  \item
+    Accusation of the opponents of images (§30--32)
+  \item
+    Eusebios' Church History (§33--37)
+  \end{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}14{]}}}Accusations and
+  comparisons (heathen Deities) (§38--43)
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    \leavevmode\marginpar{\textcolor{parnum}{{[}15{]}}}Aramazd (§38--40)
+  \item
+    Anahit (§41--42)
+  \item
+    Astłik and Aphrodite (§43)
+  \end{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}16{]}}}Other comparisons /
+  materiality (§44--51)
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    \leavevmode\marginpar{\textcolor{parnum}{{[}17{]}}}Pigment +
+    writing/images (§44--45)
+  \item
+    The power of material objects (§46--48)
+  \item
+    Painted book-cases and their symbolic meaning (§49)
+  \item
+    Christ on a donkey as an example of representation (§50)
+  \item
+    Summary (§51)
+  \end{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}18{]}}}Differences between
+  Christian and heathen images (§52--66)
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    \leavevmode\marginpar{\textcolor{parnum}{{[}19{]}}}Problem of
+    representation (§57--58)
+  \item
+    The Armenian king Pap and the (Greek) tradition of images in
+    churches (§59); concrete persons opposed to the use/veneration of
+    images in churches
+  \item
+    Testimonies from the Old and New Testament (§60--61)
+  \item
+    Purity, pigment (matter), writing and images (§62--64)
+  \item
+    Paul and Timotheus/remembrance (§65--66)
+  \end{enumerate}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}20{]}}}End (quotes,
+  accusation, prayer) (§67--70)
+\end{enumerate}
+
+\hypertarget{beispiel-fuxfcr-eine-tabelle}{%
+\section{Beispiel für eine Tabelle}\label{beispiel-fuxfcr-eine-tabelle}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}21{]}}}Für die Aufstellung
+siehe Tabelle \ref{tbl:tab1}.
+
+\begin{longtable}[]{@{}llll@{}}
+\caption{A test table \label{tbl:tab1}}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.18\columnwidth}\raggedright
+\textsc{Auspicious Statue/deities}\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
+\textsc{Moved from}\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
+\textsc{Moved to/resides in}\strut
+\end{minipage} & \begin{minipage}[b]{0.44\columnwidth}\raggedright
+\textsc{Sources/remarks}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.18\columnwidth}\raggedright
+\textsc{Auspicious Statue/deities}\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
+\textsc{Moved from}\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
+\textsc{Moved to/resides in}\strut
+\end{minipage} & \begin{minipage}[b]{0.44\columnwidth}\raggedright
+\textsc{Sources/remarks}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\emph{Śākyamuni Buddha}\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+釋迦牟尼佛
+
+Śākyamuni Buddha\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+靈鷲山
+
+Gṛdhrakūṭa-parvata ``Vulture Peak''\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+牛頭山
+
+Oxhead Mountain\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v1-2: 釋迦牟尼佛從靈鷲山向牛頭山說法來 Śākyamuni Buddha came from
+Gṛdhrakūṭa-parvata to Oxhead Mountain \emph{in order to proclaim the
+Dharma}.
+
+D-MG 231 (south): right:此牛頭山像從耆山履left:空而來
+
+{[}Oxhead Mountain Tableaux in Dūnhuáng: D-MG 9, 340, 454; YL
+33{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+此像 (S.2114, P.3033)
+
+``This statue''
+
+憍賞彌國佛 (P.3352)
+
+``The Buddha of the Country of Kauśāmbi''\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+憍賞彌國
+
+Country of Kauśāmbi\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐東媲摩城 (S.2114, P.3033)
+
+Phema* east of Khotan
+
+于闐 (P.3352)
+
+Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v11-12: 此像從憍賞彌國飛往于闐東媲摩城今見在 Thus statue flew from
+the country of Kauśāmbi to city of Phema in the east of Khotan
+\emph{where it is present today}
+
+P.3033v8-9: 此像從憍賞彌國飛往于闐東媲摩城中今見在殊靈瑞
+
+P.3352r9: 憍賞彌國佛來往{[}=住{]}于闐
+
+S.5659r9: 憍賞彌國佛來住于闐國
+
+D-MG 231 (south): right: 于闐媲摩城中琱檀瑞像
+
+D-MG 76\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+釋迦牟尼佛真容白檀身 The White sandal wood image created face-to-face
+with (lit. ``true countenance'') Śākyamuni Buddha\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+國王舍城
+
+Rājagṛha\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐海眼寺
+
+Ocean Eye Monastery of Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v16-17:
+釋迦牟尼佛真容白檀身從國王舍城騰空而來在于闐海眼寺住{[}其像手把袈裟{]}
+The white sandal statue of the true countenance of Śākyamuni Buddha was
+soaring through the air from Rājagṛha and settled in the Ocean Eye
+Monastery of Khotan {[}\emph{the hand of this statue grasps a kāṣāya}{]}
+
+P.3353r2-3: 釋迦牟尼佛真容從國王舍城騰空而來在于闐海眼寺住
+
+S.5659r5-6: 釋迦牟尼佛真容從國王舍城騰空而來在于闐海眼寺住
+
+D-MG 72: 釋迦牟尼佛真容從國王舍城騰空如來在于闐海眼寺住
+
+D-MG 45, 9, etc.
+
+D-MG 231 (east): right:于闐海眼寺釋迦 left:聖容像 (``statue of sagely
+countenance'')
+
+D-MG 231 (north): right:釋迦牟尼真容從王舍 left:城騰空住海眼寺\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+釋迦牟尼佛真容白檀香為身
+
+The true countenance of the Buddha Śākyamuni made of white sandalwood
+(lit. white sandalwood being its body)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+漢國
+
+Country of Hàn\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐坎城
+
+Kǎnchéng of Khotan (= Phema?)\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v18-19:
+釋迦牟尼佛真容白檀香**為身從漢國騰空而來在于闐坎城住{[}下其像手把袈裟{]}
+The true countenance of the Buddha Śākyamuni made of white sandalwood
+soared through the air form the Country of Hàn and came to settle at
+Kănchéng {[}\emph{below, the statue's hand grasps a kāṣāya}{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+釋迦牟尼佛
+
+Śākyamuni Buddha\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+固城
+
+``Old City'' {[}of Khotan{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v20: 釋迦牟尼佛從舍衛國
+
+騰空於固城住
+
+{[}D-MG 231: right:于闐古城瑞像left:?{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+釋迦牟尼
+
+Śākyamuni\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐國城
+
+City of Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v31-32: 釋迦牟尼亦從舍衛國
+
+騰空同來在于闐國城住{[}手把袈裟{]} Śākyamuni also soared through the air
+from Śrāvasti and came to settle in City of Khotan {[}\emph{the hand
+grasps a kāṣāya}{]}
+
+D-MG 72 (caption nearly identically)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+徽波陀佛
+
+(not identified Buddha)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐城
+
+City of Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v32-34: 徽波陀佛從舍衛國
+
+住騰空而同來在于闐城住城人欽敬不可思議{[}其下像側{]} Huībōtuó Buddha
+soared through the air from Śrāvasti and came together to settle in the
+City of Khotan; the reverence of the inhabitants of the city was
+inconceivable {[}\emph{below, the statue is slanted (?)}{]}
+
+D-MG 76 (partly damaged; extant text identical)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\emph{Other buddhas}\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+迦葉佛
+
+Kāśyapa Buddha (i.e., the Buddha prior to Śākyamuni)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐
+
+Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v36-37:
+迦葉佛亦從舍衛國騰空而來于闐國人皆虔敬不可思議{[}其像亦把袈裟{]} Kāśyapa
+Buddha also soared through the air from Śrāvasti and came to Khotan; the
+reverence {[}to the statue{]} of the people was inconceivable
+{[}\emph{this statue also holds a kāṣāya}{]}
+
+P.3353r7-8: 迦葉佛亦從舍衛國騰空而來在于闐國住國人虔敬無不遂願
+{[}\ldots{}\emph{the inhabitants revered it and there was not one whose
+wishes were not fulfilled}{]}
+
+S.5659r10-11: 迦葉佛從舍衛國騰空而來在于闐國住國人虔敬無不遂願
+
+D-MG 231: right: 迦葉佛從舍衛騰空left:於固城住\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+結迦宋佛
+
+Kāśyapa Buddha (?)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+固城
+
+``Old City'' {[}of Khotan{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v21: 結迦宋佛亦舍衛國來在固城住{[}其像手捻袈裟{]} Kāśyapa Buddha
+(?) also came from Śrāvasti and settled in the Old City {[}\emph{the
+hand of this statue holds the kāṣāya with its fingertips}{]}
+
+D-MG 76 (caption partly damaged)
+
+D-MG 231 (north)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+Vipaśyin Buddha
+
+毗波尸佛\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+于闐國
+
+Country of Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+P.3353r5: 毗婆尸佛{[}+從{]} 舍衛國
+
+騰空而來在于闐國住有人欽仰不可思議 Vipaśyin Buddha soared through the
+air from Śrāvasti and settled in the Country of Khotan; there were
+people whose veneration was inconceivable
+
+S.5659: 毗莎尸佛{[}+從{]} 舍衛國騰空而來在于闐國住有人欽仰不可思議
+
+D-MG 231: (east)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+伽儞迦牟尼佛
+
+Jiānĭjiāmŏuní Buddha
+
+(not identified Buddha)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+舍衛國
+
+Śrāvasti\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+固城
+
+``Old City'' {[}of Khotan{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v38-39: \sout{迦葉佛}
+伽儞迦牟尼佛從舍衛國騰空而來在固城住{[}其像手捻袈裟{]} (note that there
+is a strikethrough of the preceding迦葉佛Kāśyapa Buddha)
+
+D-MG 76 (caption damaged)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\emph{Protector deities}\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+The standard phrase for all the protectors: ``Deity X protects the
+country of Khotan.'' The Sanskrit transcriptions of the names of the
+deities is based on Soymié 1984, 86. Protector deities and bodhisattvas
+are depicted in D-MG 9, 98, 152, 154\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+迦迦那莎利神
+
+Deity Gaganasvara\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v48-49: 迦迦那莎利神守護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+莎那末利神
+
+Deity Suvarṇamāla\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v49-50: 莎那末利神守護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+莎那摩利神
+
+Deity Suvarṇamāla\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v50: 莎那摩利神守護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+阿隅闍天女
+
+Heavenly Maiden Aṅkuśavatī\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v50: 阿隅闍天女守護闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+毗沙天王神
+
+Deity Vaiśravaṇa\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v51: 毗沙天王神守護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+阿婆羅質多神
+
+Deity Apārajita\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v51: 阿婆羅質多神守護于闐國
+
+P.3352r2: 阿婆羅質多神護于闐國
+
+S.5659r4: 阿婆羅質多神護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+摩訶迦羅神
+
+Deity Mahākāla\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v52: 摩訶迦羅神守護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+悉他那天女
+
+恭陀那天女
+
+Heavenly Maiden Sthānavatī\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v52: 悉他那天女護于闐國
+
+S.5659r8: 恭陀那天女守護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\emph{Protector Bodhisattvas}\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+Same formula as in \emph{Protector deities}.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+金剛藏菩薩
+
+Vajragarbha Bodhisattva\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.5659r1: 金剛藏菩薩護于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+觀世音菩薩
+
+Avalokiteśvara Bodhisattva\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.5659r14: 觀世音菩薩助于闐國\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+寶壇花菩薩
+
+Bǎotánhuā púsà\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.5659r14-15: 寶壇花菩薩助于闐國
+
+(No reference to this Bodhisattva other than in a caption of D-MG
+449)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+\emph{``Narratives'' mentioning Khotan}\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+于闐王河浴佛瑞像
+
+The King of Khotan bathing Buddha's Auspicious Statue in the river\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+S.2113v22-23: 于闐王河浴佛瑞像身丈餘杖錫持鉢畫形布(?)立{[}其像赤體立{]}
+The King of Khotan bathes the Auspicious Statue of the Buddha in the
+river; the body {[}of the statue{]} is more than {[}one{]} \emph{zhàng}
+{[}in height; i.e.~more than 3 meters{]}; he holds a monk's staff and
+begging bowl; \ldots{} (?) {[}\emph{this statue is naked and stands
+upright}{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.18\columnwidth}\raggedright
+于闐國舍利弗毗沙門天王
+
+Śāriputra and the Heavenly King Vaiśravaṇa of Khotan\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.44\columnwidth}\raggedright
+P.3352r11-12: 于闐國舍利弗毗沙門天王決海時
+
+The scene when Śāriputra and the Heavenly King Vaiśravaṇa of Khotan
+divide the ocean
+
+D-MG 9, 237, 454
+
+D-MG 231: right:于闐國舍利弗毗沙門天王決海時\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{beispiel-fuxfcr-ein-bild}{%
+\section{Beispiel für ein Bild}\label{beispiel-fuxfcr-ein-bild}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}22{]}}}Der Ausstellungsraum
+ist in Abbildung \ref{fig:img1} zu sehen.
+
+\begin{figure}
+\hypertarget{fig:img1}{%
+\centering
+\includegraphics{Image 1.tif}
+\caption{Insert Image 1 here}\label{fig:img1}
+}
+\end{figure}
+
+\hypertarget{bibliography}{%
+\section*{References}\label{bibliography}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{cslreferences}
+\leavevmode\hypertarget{ref-beagle_digital_2014}{}%
+Beagle, Donald. 2014. ``Digital Humanities in the Research Commons:
+Precedents \& Prospects.'' Text. \emph{Dh+lib} (blog). January 30, 2014.
+\url{https://acrl.ala.org/dh/2014/01/30/digital-humanities-in-the-research-commons-precedents-prospects-3/}.
+
+\leavevmode\hypertarget{ref-berry_understanding_2012}{}%
+Berry, David M. 2012. \emph{Understanding Digital Humanities}.
+Basingstoke: Palgrave Macmillan.
+\url{https://www.palgrave.com/de/book/9780230292642}.
+
+\leavevmode\hypertarget{ref-blume_burkhard_2016}{}%
+Blume, Michael. 2016. ``Burkhard Gladigow und die europäische
+Religionsgeschichte von der griechischen Antike bis zu den Protokollen
+der Weisen von Zion.'' \emph{Natur des Glaubens} (blog). June 17, 2016.
+\url{https://scilogs.spektrum.de/natur-des-glaubens/burkhard-gladigow-religionsgeschichte-antike-protokollen/}.
+
+\leavevmode\hypertarget{ref-burdick_digital_humanities_2012}{}%
+Burdick, Anne, Johanna Drucker, Peter Lunenfeld, Todd Presner, and
+Jeffrey Schnapp. 2012. \emph{Digital\_Humanities}. MIT Press.
+
+\leavevmode\hypertarget{ref-busa_annals_1980}{}%
+Busa, R. 1980. ``The Annals of Humanities Computing: The Index
+Thomisticus.'' \emph{Computers and the Humanities} 14 (2): 83--90.
+\url{https://doi.org/10.1007/BF02403798}.
+
+\leavevmode\hypertarget{ref-celentano_informatica_2004}{}%
+Celentano, Augusto, Agostino Cortesi, and Paolo Mastandrea. 2004.
+``Informatica Umanistica: Una Disciplina Di Confine.'' \emph{Mondo
+Digitale} 4: 44--55.
+
+\leavevmode\hypertarget{ref-classen_towards_2012}{}%
+Classen, Christoph, Susanne Kinnebrock, and Maria Löblich. 2012.
+``Towards Web History: Sources, Methods, and Challenges in the Digital
+Age. An Introduction.'' \emph{Historical Social Research / Historische
+Sozialforschung} 37 (4 (142)): 97--101.
+\url{https://www.jstor.org/stable/41756476}.
+
+\leavevmode\hypertarget{ref-gladigow_europaische_1995}{}%
+Gladigow, Burkhard. 1995. ``Europäische Religionsgeschichte.'' In
+\emph{Lokale Religionsgeschichte}, edited by G. Hans Kippenberg and
+Brigitte Luchesi, 21--42. Marburg: Diagonal.
+
+\leavevmode\hypertarget{ref-isomae_religious_2014}{}%
+Isomae, Jun'ichi. 2014. \emph{Religious Discourse in Modern Japan:
+Religion, State, and Shintō}. Translated by Galen Amstutz and Lynne E.
+Riggs. London: Brill.
+
+\leavevmode\hypertarget{ref-kippenberg_europaische_2009}{}%
+Kippenberg, Hans G., Jörg Rüpke, and Kocku von Stuckrad, eds. 2009.
+\emph{Europäische Religionsgeschichte: Ein Mehrfacher Pluralismus}.
+Göttingen: Vandenhoeck \& Ruprecht.
+
+\leavevmode\hypertarget{ref-rudolph_leipzig_1962}{}%
+Rudolph, Kurt. 1962. ``Leipzig Und Die Religionswissenschaft.''
+\emph{Numen} 9 (1): 53--68. \url{https://doi.org/10.2307/3269414}.
+
+\leavevmode\hypertarget{ref-schalk_religion_2013}{}%
+Schalk, Peter, ed. 2013. \emph{Religion in Asien? Studien Zur
+Anwendbarkeit Des Religionsbegriffs}. Acta Universitatis Upsaliensis,
+Historia Religionum 32. Uppsala: Uppsala Universitet.
+
+\leavevmode\hypertarget{ref-seiwert_popular_2003}{}%
+Seiwert, Hubert. 2003. \emph{Popular Religious Movements and Heterodox
+Sects in Chinese History}. Leiden/Boston: Brill.
+
+\leavevmode\hypertarget{ref-waardenburg_islam:_2002}{}%
+Waardenburg, Jean Jacques. 2002. \emph{Islam: Historical, Social, and
+Political Perspectives}. Religion and Reason 40. Berlin: de Gruyter.
+
+\leavevmode\hypertarget{ref-waardenburg_muslims_2007}{}%
+---------. 2007. \emph{Muslims as Actors: Islamic Meanings and Muslim
+Interpretations in the Perspective of the Study of Religions}. Religion
+and Reason 46. Berlin: de Gruyter.
+
+\leavevmode\hypertarget{ref-weber_gesammelte_1988}{}%
+Weber, Max. (1922) 1988. \emph{Gesammelte Aufsätze Zur
+Religionssoziologie}. 9th ed. Vol. 2. Tübingen: Mohr.
+\end{cslreferences}
+
+\end{document}
