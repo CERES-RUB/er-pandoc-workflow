@@ -11,6 +11,7 @@ __all__ = ['Attrs', 'parse_attributes', 'serialize_attributes',
 
 Attrs = namedtuple('Attrs', ['identifier', 'classes', 'attributes'])
 
+
 def parse_attributes(attr_str):
     """
     Gets an attribute string and returns an Attrs instance:
@@ -40,6 +41,7 @@ def parse_attributes(attr_str):
 
     return Attrs(identifier, classes, attributes)
 
+
 def serialize_attributes(attr):
     """
     Takes an Attrs object and returns a pandoc attribute string.
@@ -52,6 +54,7 @@ def serialize_attributes(attr):
     parts.extend([f'{k}="{v}"' for k, v in attr.attributes.items()])
     return '{' + ' '.join(parts) + '}'
 
+
 def extract_attributes(caption):
     """
     Takes a table caption and returns a (content, attr) tuple.
@@ -60,18 +63,16 @@ def extract_attributes(caption):
     actual_content = []
     attributes_str = ''
     isattr = False
-    for token in caption:
-        if isinstance(token, Str) and token.text.startswith('{'):
-            isattr = True
-        if isattr:
-            if isinstance(token, Quoted):
-                attributes_str += '"' + stringify(token) + '"'
-            else:
+    for block in caption.content:
+        for token in block.content:
+            if isinstance(token, Str) and token.text.startswith('{'):
+                isattr = True
+            if isattr:
                 attributes_str += stringify(token)
-        else:
-            actual_content.append(token)
-        if isinstance(token, Str) and token.text.endswith('}'):
-            isattr = False
+            else:
+                actual_content.append(token)
+            if isinstance(token, Str) and token.text.endswith('}'):
+                isattr = False
 
     # Parse attributes
     attr = parse_attributes(attributes_str)
