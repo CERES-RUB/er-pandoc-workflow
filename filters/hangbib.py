@@ -15,9 +15,9 @@ def hangbib(elem, doc):
         and 'references' in elem.classes
         and not elem.identifier == 'refs'):
         if doc.format == 'latex':
-            return [RawBlock(r'\begin{cslreferences}', format='latex'),
+            return [RawBlock(r'\begin{CSLReferences}', format='latex'),
                     elem,
-                    RawBlock(r'\end{cslreferences}', format='latex'),
+                    RawBlock(r'\end{CSLReferences}', format='latex'),
                     ]
         if doc.format == 'html':
             elem.classes.append('hanging-indent')
