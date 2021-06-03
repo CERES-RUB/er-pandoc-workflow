@@ -11,16 +11,12 @@ Column width can get passed to the table as an attribute in its caption:
 
 from panflute import *
 
-from tabletools import *
-
 
 def update_width(elem, doc):
     if isinstance(elem, Table):
-        # Split the caption into the actual content and attributes
-        actual_content, attr = extract_attributes(elem.caption)
-        if 'colwidth' in attr.attributes:
+        if 'colwidth' in elem.attributes:
             # get new width values from `colwidth` attribute
-            widths = [float(w) for w in attr.attributes['colwidth'].split()]
+            widths = [float(w) for w in elem.attributes['colwidth'].split()]
             # colspec is a list of (align, width) pairs.
             # Generate the new colspec by replacing the width values.
             colspec = [(align, newwidth)
@@ -28,14 +24,7 @@ def update_width(elem, doc):
                        in zip(elem.colspec, widths)]
             elem.colspec = colspec
             # Remove colwidth attribute, since it’s now obsolete
-            del attr.attributes['colwidth']
-
-        if attr.identifier or attr.classes or attr.attributes:
-            # Re-add remaining attributes
-            actual_content.append(Space)
-            actual_content.append(Str(serialize_attributes(attr)))
-
-        elem.caption = Caption(Plain(*actual_content))
+            del elem.attributes['colwidth']
 
 
 def main(doc=None):

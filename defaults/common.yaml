@@ -7,9 +7,9 @@ metadata:
 filters:
     - filters/licensebadge.py
     - filters/parnums.py
-    - filters/tablewidth.py
     - filters/conditionalspans.py
     - filters/hangbib.py
     - pandoc-fignos
     - pandoc-tablenos
+    - filters/tablewidth.py
     - citeproc
