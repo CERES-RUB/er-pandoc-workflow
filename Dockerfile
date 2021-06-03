@@ -14,16 +14,12 @@ RUN apt-get -q --no-allow-insecure-repositories update \
 		fonts-noto-cjk \
 		python3-pip \
 		xsltproc \
-		git \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install \
 		pandoc-fignos==2.4.0 \
 		pandoc-tablenos==2.3.0 \
-		git+https://github.com/sergiocorreia/panflute.git@a253315d5ae64018ea9c3ccbd4d5aec26b374a48#egg=panflute
-
-# panflute 2.1.0 is not yet on pypi.
-# remember to remove git from apt above when this is resolved.
+		panflute==2.1.0
 
 # Add this once the texlive repo is frozen.
 #RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final \
