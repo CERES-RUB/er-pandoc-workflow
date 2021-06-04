@@ -1,5 +1,27 @@
 # Entangled Religions typesetting
 
+## Docker
+
+Der einfachste Weg, die jeweils aktuelle Version der Konversionsroutinen zu nutzen, ist Docker. Liegt ein Artikel unter `articles/2021_Mustermensch`, kann die Konversion nach Markdown so aufgerufen werden:
+
+```sh
+docker run --rm \
+           --volume $(pwd)/articles:/articles \
+           --user $(id -u):$(id -g) \
+           registry.git.noc.ruhr-uni-bochum.de/entangled-religions/pandoc-workflow/import \
+           /articles/2021_Mustermensch/test_article.docx
+```
+
+Für die Konversion von Markdown in die Ausgabeformate sieht es dann so aus:
+
+```sh
+docker run --rm \
+           --volume $(pwd)/articles:/articles \
+           --user $(id -u):$(id -g) \
+           registry.git.noc.ruhr-uni-bochum.de/entangled-religions/pandoc-workflow/export \
+           /articles/2021_Mustermensch/test_article.md
+```
+
 ## Workflow
 
 Der Workflow besteht aus drei Schritten:
