@@ -24,9 +24,10 @@ RUN pip3 install \
 # Add this once the texlive repo is frozen.
 #RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final \
 RUN tlmgr update --self \
-    && tlmgr install footmisc \
-                     zref \
-                     ctex
+    && tlmgr install ctex \
+    				 footmisc \
+    				 soul \
+                     zref
 
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache
