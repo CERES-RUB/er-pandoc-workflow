@@ -19,6 +19,7 @@ function build_tex {
         --defaults "defaults/common.yaml" \
         --defaults "defaults/latex.yaml" \
         --resource-path ".:$BASEPATH" \
+        --filter "filters/noindent.py" \
     && echo "done." \
     || echo "error!"
 
