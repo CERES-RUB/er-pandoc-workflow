@@ -159,7 +159,7 @@ Sollen sukzessive Absätze nicht eingerückt werden (was aufgrund des fehlenden 
 :::
 ```
 
-Wenn `noparnums` mit `noindent` kombiniert werden soll (was im obigen Beispiel sinnvoll ist), müssen die Klassen in eckigen Klammern eingefügt werden (**der `.` vor den Namen ist hier unbedingt notwendig**, siehe auch [pandoc Documentation `fenced_divs`](https://pandoc.org/MANUAL.html#extension-fenced_divs)).
+Wenn `noparnums` mit `noindent` kombiniert werden soll (was im obigen Beispiel sinnvoll ist), müssen die Klassen in geschweiften Klammern eingefügt werden (**der `.` vor den Namen ist hier unbedingt notwendig**, siehe auch [pandoc Documentation `fenced_divs`](https://pandoc.org/MANUAL.html#extension-fenced_divs)).
 
 ```markdown
 
