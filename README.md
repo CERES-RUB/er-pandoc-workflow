@@ -138,6 +138,48 @@ The author thanks …
 :::
 ```
 
+Sollen sukzessive Absätze nicht eingerückt werden (was aufgrund des fehlenden Abstands zwischen den Paragraphen nur in Ausnahmefällen sinnvoll ist - lieber eine Liste verwenden), kann der Abschnitt mit `noindent` ausgezeichnet werden.
+
+```markdown
+
+## A.  Standard Borrowings
+
+::: noindent
+
+*’’c’r(’)y* – *ācārya* (B, G, R) 2. b. 2. f.
+
+*’’kš’r* – *akṣara* (?, R) 2. q.
+
+*’’m(’)wkp’š* – *Amoghapāśa* (L, P) 2. a; 2. i.IL
+
+*’’n’k’my* – *anāgāmin*, nom. *anagamī* (R) 2. u. HL
+
+*’’n’nt* – *Ānanda* (MK, L, P) 2. q., n. 31
+
+:::
+```
+
+Wenn `noparnums` mit `noindent` kombiniert werden soll (was im obigen Beispiel sinnvoll ist), müssen die Klassen in geschweiften Klammern eingefügt werden (**der `.` vor den Namen ist hier unbedingt notwendig**, siehe auch [pandoc Documentation `fenced_divs`](https://pandoc.org/MANUAL.html#extension-fenced_divs)).
+
+```markdown
+
+## A.  Standard Borrowings
+
+::: { .noindent .noparnums }
+
+*’’c’r(’)y* – *ācārya* (B, G, R) 2. b. 2. f.
+
+*’’kš’r* – *akṣara* (?, R) 2. q.
+
+*’’m(’)wkp’š* – *Amoghapāśa* (L, P) 2. a; 2. i.IL
+
+*’’n’k’my* – *anāgāmin*, nom. *anagamī* (R) 2. u. HL
+
+*’’n’nt* – *Ānanda* (MK, L, P) 2. q., n. 31
+
+:::
+```
+
 ### Zitate
 
 Blockzitate stellen in pandoc immer einen eigenen Absatz dar. Daher ist es nicht ohne weiteres möglich, Blockzitate zu definieren, die Teil des umgebenden Absatzes sind. Es ist aber möglich, die folgende Einrückung im PDF zu unterdrücken:
