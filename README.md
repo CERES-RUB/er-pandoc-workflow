@@ -141,7 +141,6 @@ The author thanks …
 Sollen sukzessive Absätze nicht eingerückt werden (was aufgrund des fehlenden Abstands zwischen den Paragraphen nur in Ausnahmefällen sinnvoll ist - lieber eine Liste verwenden), kann der Abschnitt mit `noindent` ausgezeichnet werden.
 
 ```markdown
-::: noindent
 
 ## A.  Standard Borrowings
 
@@ -163,7 +162,6 @@ Sollen sukzessive Absätze nicht eingerückt werden (was aufgrund des fehlenden 
 Wenn `noparnums` mit `noindent` kombiniert werden soll (was im obigen Beispiel sinnvoll ist), müssen die Klassen in eckigen Klammern eingefügt werden (**der `.` vor den Namen ist hier unbedingt notwendig**, siehe auch [pandoc Documentation `fenced_divs`](https://pandoc.org/MANUAL.html#extension-fenced_divs)).
 
 ```markdown
-::: noindent
 
 ## A.  Standard Borrowings
 
