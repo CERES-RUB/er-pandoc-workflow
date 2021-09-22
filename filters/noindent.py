@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-A pandoc filter that places a \\noindent before every paragraph (this might be useful in case there are many short paragraphs and you don't want to use a list)
+A pandoc filter that places a \noindent before every paragraph; this might be useful in the rare case when you have many short paragraphs but you don't want to use a list
 """
 
 from panflute import *
