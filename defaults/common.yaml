@@ -10,6 +10,7 @@ filters:
     - filters/tablewidth.py
     - filters/conditionalspans.py
     - filters/hangbib.py
+    - filters/noindent.py
     - pandoc-fignos
     - pandoc-tablenos
     - pandoc-citeproc
