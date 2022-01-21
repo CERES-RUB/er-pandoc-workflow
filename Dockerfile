@@ -30,5 +30,7 @@ RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2020/tlnet-fi
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 COPY . /data
 ENTRYPOINT ["/data/compile_md2pdf.sh"]
