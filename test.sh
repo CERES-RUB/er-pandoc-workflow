@@ -68,6 +68,8 @@ PDF_DIFFS=0
 rm "$TESTDIR/export/$ARTICLE_img"*_diff.png
 pdftoppm -png "$TESTDIR/export/$ARTICLE.pdf" "$TESTDIR/export/${ARTICLE}_img"
 for img in "$TESTDIR/export/${ARTICLE}_img"*.png; do
+    gm compare "$TESTDIR/export/expected/$(basename "$img")" "$img" "$img"_diff.png \
+    && if [ -f "$img"_diff.png ]; then rm "$img"_diff.png; fi \
     || ((PDF_DIFFS++))
 done
 if [ $PDF_DIFFS -eq 0 ]; then
