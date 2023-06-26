@@ -2,6 +2,7 @@
 
 TESTDIR="$(pwd)/$(dirname "$0")/test"
 TAG="edge"
+ARTICLE="test_article_simple"
 
 FAILED=0
 
@@ -46,15 +47,15 @@ docker run --rm \
            --volume $TESTDIR/export:/work \
            --user `id -u`:`id -g` \
            registry.git.noc.ruhr-uni-bochum.de/entangled-religions/pandoc-workflow/export:"$TAG" \
-           /work/test_article.md
+           "/work/$ARTICLE.md"
 
 echo -n 'Test LaTeX ... '
 
-diff_tex=$(diff -u "$TESTDIR/export/expected/test_article.tex" "$TESTDIR/export/test_article.tex")
+diff_tex=$(diff -u "$TESTDIR/export/expected/$ARTICLE.tex" "$TESTDIR/export/$ARTICLE.tex")
 
 if [ -z "$diff_tex" -a $? -eq 0 ]; then
     echo '✅ success'
-    rm "$TESTDIR/export/test_article.tex"
+    rm "$TESTDIR/export/$ARTICLE.tex"
 else
     echo '❌ failed.'
     ((FAILED++))
@@ -64,16 +65,14 @@ fi
 echo -n 'Test PDF ... '
 
 PDF_DIFFS=0
-rm "$TESTDIR/export/test_article_img"*_diff.png
-pdftoppm -png "$TESTDIR/export/test_article.pdf" "$TESTDIR/export/test_article_img"
-for img in "$TESTDIR/export/test_article_img"*.png; do
-    compare "$TESTDIR/export/expected/$(basename "$img")" "$img" "$img"_diff.png \
-    && rm "$img"_diff.png \
+rm "$TESTDIR/export/$ARTICLE_img"*_diff.png
+pdftoppm -png "$TESTDIR/export/$ARTICLE.pdf" "$TESTDIR/export/${ARTICLE}_img"
+for img in "$TESTDIR/export/${ARTICLE}_img"*.png; do
     || ((PDF_DIFFS++))
 done
 if [ $PDF_DIFFS -eq 0 ]; then
     echo '✅ success'
-    rm "$TESTDIR/export/test_article.tex"
+    rm "$TESTDIR/export/$ARTICLE.tex"
 else
     echo "❌ failed, $PDF_DIFFS pages are different."
     ((FAILED++))
@@ -81,11 +80,11 @@ fi
 
 echo -n 'Test HTML ... '
 
-diff_html=$(diff -u "$TESTDIR/export/expected/test_article.html" "$TESTDIR/export/test_article.html")
+diff_html=$(diff -u "$TESTDIR/export/expected/$ARTICLE.html" "$TESTDIR/export/$ARTICLE.html")
 
 if [ -z "$diff_html" -a $? -eq 0 ]; then
     echo '✅ success'
-    rm "$TESTDIR/export/test_article.html"
+    rm "$TESTDIR/export/$ARTICLE.html"
 else
     echo '❌ failed.'
     ((FAILED++))
