@@ -1,4 +1,4 @@
-FROM pandoc/ubuntu-latex:2.13
+FROM pandoc/latex:3.1-ubuntu
 
 WORKDIR /data
 
@@ -17,9 +17,7 @@ RUN apt-get -q --no-allow-insecure-repositories update \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install \
-		pandoc-fignos==2.4.0 \
-		pandoc-tablenos==2.3.0 \
-		panflute==2.1.0
+		panflute==2.3.0
 
 # Add this once the texlive repo is frozen.
 #RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final \
