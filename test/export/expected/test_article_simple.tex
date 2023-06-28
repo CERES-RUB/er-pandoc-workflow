@@ -1,0 +1,881 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  english,
+  a4paper,
+  DIV=12,
+  footlines=2.1,
+  usegeometry=true]{scrartcl}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Charis SIL}
+  \setsansfont[]{Charis SIL Compact}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Whose Presence, Whose Absences? Decolonising Russian National Culture and History: Observations Through the Prism of Religious Contact},
+  pdflang={en},
+  pdfkeywords={nation-building, defining space, minority
+cultures, decolonisation, presence, absence},
+  colorlinks=true,
+  linkcolor={NavyBlue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+
+%% ER Settings
+
+%% Page style, header and footer
+\usepackage[headsepline]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\lohead{\textsc{Schmoller/Stünkel}}
+\rohead{\textit{Entangled Religions} 13.8 (2023)}
+%\cofoot[]{\thepage}
+\cofoot[]{}
+
+%% Page margin
+
+% We don’t use the page foot except on the first page.
+% This leads to a large bottom margin on most pages.
+% To solve this, we’re setting the bottom margin manually
+% and set footskip to 0pt. This completely merges the
+% foot into the text area.
+% We’re then using \enlargethispage{-5\baselineskip} to
+% create space for the foot on the first page.
+\usepackage[bottom=2.8cm,footskip=0pt]{geometry}
+
+%% Force loading of required packages
+\usepackage{booktabs,graphicx}
+
+%% Bookmarks/Outline
+\usepackage{bookmark}
+
+%% Text settings
+\tolerance=1000
+\widowpenalty=10000
+\clubpenalty=10000
+
+%% Colors
+\definecolor{parnum}{gray}{0.5}
+
+%% Figure captions
+\KOMAoptions{captions=tableabove}
+\addtokomafont{caption}{\normalfont\small}
+\addtokomafont{captionlabel}{\bfseries}
+\renewcommand*{\captionformat}{\quad}
+
+%% page headings
+\setkomafont{pageheadfoot}{%
+\normalfont\normalcolor\small}
+\setkomafont{author}{\large\scshape}
+\setkomafont{date}{\large}
+
+%% languages/scripts
+\newfontfamily\hebrewfont[Script=Hebrew]{FreeSerif}
+\newfontfamily\arabicfont[Script=Arabic]{Scheherazade}
+\newfontfamily\syriacfont[Script=Syriac]{Noto Sans Syriac Estrangela}
+\newfontfamily\greekfont[Script=Greek]{Gentium Plus}
+\newfontfamily\copticfont[Script=Coptic]{Noto Sans Coptic}
+\newfontfamily\ethiopicfont[Script=Ethiopic]{Noto Serif Ethiopic}
+\newfontfamily\amharicfont[Script=Ethiopic]{Noto Serif Ethiopic}
+
+%% enumerations
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+
+%% figure positioning
+\makeatletter
+\def\fps@figure{tbp}
+\makeatother
+
+%% set floats above footnotes
+\usepackage[bottom]{footmisc}
+
+%% End ER Settings
+
+\ifXeTeX
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+  \setotherlanguage[]{russian}
+\else
+  \usepackage[russian,main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+  \newcommand{\textrussian}[2][]{\foreignlanguage{russian}{#2}}
+  \newenvironment{russian}[2][]{\begin{otherlanguage}{russian}}{\end{otherlanguage}}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+%% Footnotes (load after polyglossia!)
+\deffootnote{\leftmargin}{1em}{%
+\makebox[\leftmargin][l]{\thefootnotemark}%
+}
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{\leftmargin}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\title{Whose Presence, Whose Absences? Decolonising Russian National
+Culture and History: Observations Through the Prism of Religious
+Contact}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Introduction}
+\author{Jesko Schmoller\\Humboldt University Berlin, Germany \and Knut
+Martin Stünkel\\Ruhr-Universität Bochum, Germany}
+\date{}
+
+\begin{document}
+%% No additional space between sentences
+\frenchspacing
+
+\cleardoubleoddpage
+\thispagestyle{empty}
+\begin{singlespace}
+
+%% Logo
+\hfill\includegraphics[height=3\baselineskip]{Logo_ER.pdf}
+\noindent\rule{\textwidth}{\heavyrulewidth}
+
+%% Head
+\vspace*{.2\baselineskip}
+\noindent\begin{minipage}[c]{.13\textwidth}
+\scriptsize
+\parbox{.2\textwidth}{\includegraphics[height=2\baselineskip,width=\csname Gin@nat@width\endcsname,keepaspectratio]{cc-by.pdf}}
+\end{minipage}
+\begin{minipage}[c]{.4\textwidth}
+\scriptsize
+\raggedright
+DOI:~\href{https://doi.org/10.46586/er.13.2022.10535}{10.46586/er.13.2022.10535}\\
+License:~\href{http://creativecommons.org/licenses/by/4.0/}{Creative
+Commons Attribution 4.0}
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\textwidth}
+\scriptsize
+\raggedleft
+\textit{Entangled Religions} 13.8 (2023)\\
+\href{https://er.ceres.rub.de/}{er.ceres.rub.de}
+\end{minipage}
+
+%% Title
+\vspace*{2\baselineskip}
+{\usekomafont{title}\LARGE\noindent\raggedright Whose Presence, Whose
+Absences? Decolonising Russian National Culture and History:
+Observations Through the Prism of Religious Contact\par}
+\vspace*{.5\baselineskip}
+{\usekomafont{subtitle}\Large\noindent\raggedright Introduction\par}
+\vspace{2\baselineskip}
+{\usekomafont{author}\noindent Jesko
+Schmoller\hspace{.25em}\href{https://orcid.org/0000-0001-7818-6018}{\includegraphics[height=1em]{orcid_iD.pdf}}\par}
+{\usekomafont{author}\normalfont\itshape\normalsize\noindent Humboldt
+University Berlin, Germany\par}
+\vspace{\baselineskip}
+{\usekomafont{author}\noindent Knut Martin
+Stünkel\hspace{.25em}\href{https://orcid.org/0000-0002-3182-2483}{\includegraphics[height=1em]{orcid_iD.pdf}}\par}
+{\usekomafont{author}\normalfont\itshape\normalsize\noindent Ruhr-Universität
+Bochum, Germany\par}
+\vspace{\baselineskip}
+\vspace{2\baselineskip}
+\end{singlespace}
+\begin{quote}
+\small
+\begin{tabular}{@{}p{\linewidth}@{}}
+\toprule
+{\bfseries\scshape abstract}\hspace{1em}In the introduction to this
+special issue, the editors are concerned with how the Russian state
+defines its national culture and history mainly with reference to Slavic
+civilisation, Orthodox Christianity and imperial glory. This post-Soviet
+discourse of nation-building may be understood as an attempt to cope
+with a sense of loss in the wake of the Soviet Union's collapse. That
+discourse also affects how nationalist-minded observers interpret space
+as naturally Russian and as part of the empire of the past (or the
+present). Regrettably, little consideration is being paid to Russia's
+ethnic and religious minority cultures, which hardly seem to contribute
+to Russian history and culture and sometimes do not even feature in
+representations thereof. Critically engaging with the ideas of presence
+and absence---the presence of one culture or tradition to the detriment
+of others---, the editors suggest, can potentially help to decolonise
+accounts and illustrations of Russian culture and heritage. In the best
+case, the outcome of such an exercise would be a more adequate
+involvement of minority representatives in the process of negotiating
+Russian national culture.\\
+\midrule[\heavyrulewidth]
+{\bfseries\scshape keywords}\hspace{1em}nation-building, defining
+space, minority cultures, decolonisation, presence, absence\\
+\bottomrule
+\end{tabular}
+\end{quote}
+\vspace{1.8181\baselineskip} % Since we altered line spacing, we need to adjust the vspace here.
+
+\setstretch{1.1}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}1{]}}}When Russian president
+Vladimir Putin announced a ``special military operation'' on February
+24, 2022, followed by a \emph{de facto} invasion of Ukrainian territory
+by the Russian Armed Forces, these drastic measures were taken with the
+aim of both demilitarisation and ``denazification'' of the neighbouring
+state. Given the frequency of statements by Russian politicians and
+television presenters that would qualify as ultra-nationalist almost
+anywhere, the accusation of Nazism may be surprising to an outside
+observer. Rather than their being truly concerned about possibly
+subscribing to fascist ideas, the real problem seems to be that a people
+that once belonged to Russia's immediate sphere of influence may oppose
+Russia's outlook and self-perception as imperial superpower and
+benefactor. Behind the invasion of Ukraine, we see a colonial mindset at
+work that is difficult to reconcile with global humanist principles or
+the more recent accomplishments in terms of more openness and respect
+for other cultures. Instead, in the essay ``On the Historical Unity of
+Russians and Ukrainians,'' Putin argues for the shared heritage of
+Russians, Ukrainians and Belarusians, denying Ukrainians any degree of
+nationhood.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}2{]}}}While the measure of
+military intervention may be extreme, the Russian state's negation of
+another people's history and culture unfortunately does not constitute a
+complete exception. Since the breakdown of the Soviet Union, Russian
+political elites have been concerned with reconceptualising Russian
+identity, cautiously distancing themselves from formerly dominant
+ideologies such as socialism or state atheism. This process, however,
+has internally not automatically translated into better representation
+of Russia's ethnic and religious minorities, who hardly feature at all
+in official accounts of the country's history and culture. Critically
+reflecting upon the undertaking of forging a new national identity for
+the Russian Federation, this special issue of \emph{Entangled Religions}
+pays specific attention to the absences produced by this particular
+self-image. The issue, thus, examines a situation of contact where the
+dominant party denies any contact by negating the presence of the other.
+Although not without ambivalences of its own, the project of post-Soviet
+nation-building in Russia is determined by the rhetoric of empire in
+combination with an embrace of Slavic civilisation and the Orthodox
+Christian denomination.\footnote{This goes hand in hand with an adoption
+  of so-called traditional values and a rejection of Western liberal
+  culture.} While such a national identity may include many Russian
+citizens and appeal strongly to some, it leaves out those who identify
+differently in ethnic and religious terms.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}3{]}}}In the former Soviet
+space beyond the borders of the Russian state, critical voices are now
+being heard that demand a decolonisation of Russia, in the sense of
+newly assessing the country's imperial history and ambitions as well as
+the colonial practices of the past and present, both in the near abroad
+and within Russia. The invasion of Ukraine has thus elevated a
+decolonial discourse that is also becoming more pronounced in states
+such as Georgia, Kazakhstan and Kyrgyzstan.\footnote{Kassymbekova,
+  Botakoz and Erica Marat. 2022. ``Time to Question Russia's Imperial
+  Innocence.'' Ponars Eurasia. April 27, 2022.
+  \url{https://www.ponarseurasia.org/time-to-question-russias-imperial-innocence/}.}
+New links are being forged among nations in the former Soviet
+periphery.\footnote{Kassymbekova, Botakoz and Marlene Laruelle. 2022.
+  ``The end of Russia's imperial innocence.'' Russia.Post. May 25, 2022.
+  \url{https://russiapost.info/politics/the_end_of_russias_imperial_innocence}.}
+Decolonial thinkers insist that Russia's imperial innocence must end for
+the state to come to terms with its colonial heritage, taking
+responsibility for the crimes of the past. In resonance with such a
+demand, the Ukrainian historian Andrii Portnov argues that it will be
+necessary for Russia to nurture a culture of guilt.\footnote{Portnov,
+  Andrii. 2022. ``Russland braucht eine Schuldkultur.'' Neue Zürcher
+  Zeitung, July 20, 2022.
+  \url{https://www.nzz.ch/feuilleton/russland-braucht-eine-schuldkultur-ld.1693068}.}
+Some observers go as far as to question whether in the current climate
+one may still reasonably speak about a ``post-Soviet'' space or if the
+resistance of former colonial subjects to Russia's dreams of hegemonic
+power and imperial glory signals the beginning of a new era, no longer
+primarily defined by the Soviet past. Apparently, the decolonial
+critique is in the process of establishing itself in the region as a
+potent discourse.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}4{]}}}With this special
+issue, we aim for a critical perspective on religion as one aspect of
+culture and self-perception that has particularly suffered from
+intervention by the Soviet state; an intervention that in some instances
+can be regarded as colonial in nature. In their efforts to establish
+state atheism, the Bolsheviks endeavoured to eliminate religion in all
+of its forms and to exchange it with a social order informed by reason,
+visions of modernity, the discoveries of science as well as
+technological progress. As the outcome of anti-religious campaigns,
+houses of worship were closed, repurposed or destroyed, while no small
+number of priests, imams and other religious leaders suffered the fate
+of deportation, imprisonment and sometimes execution. For ethnic
+minority groups, the Soviet nationalities policies meant that religion
+was being reduced to one component of native culture that would, the
+ideologists assumed, fade into oblivion in the course of time. This kind
+of religious repression no longer exists, and anyone is free to engage
+with their cultural and religious traditions as much as they wish. But
+among the religions to be encountered in Russia, Orthodox Christianity
+has assumed a primary role for a new Russian identity in the making,
+resulting in a situation where the heightened visibility of one
+religious group hides the presence of others. Taking the interplay of
+multiple denominations into account over the following pages, we intend
+to reflect upon the question of ``whose presence, whose absences''
+mainly through the prism of religious contact.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}5{]}}}At the \emph{Käte
+Hamburger Kolleg} (KHK) ``Dynamics in the History of Religions between
+Asia and Europe'' (2008--2022), in the framework of which
+\emph{Entangled Religions} developed as a journal, affiliated scholars
+analysed how religions interrelate with their prevailing environments.
+The basic assumption behind that research is that religious traditions
+emerge, consolidate, spread, condense and decline via situations of
+contact with other religious traditions. The challenge of the other
+tradition triggers a process of self-reference, leading to an
+intensification of expression that may both have internal and external
+effects. Complex processes of adaptation and demarcation,
+self-perception and perception by others define situations of religious
+contact and in the course of time contribute to the establishment of
+particular religious fields. Accordingly, as Volkhard Krech, as the
+\emph{spiritus rector} of the KHK, put it, a religious field is ``formed
+and reproduced by actors who develop an awareness of what might be
+regarded as religion.'' With awareness being a matter of communication
+and contact, ``one of the basic constituents of the religious field is
+the intra- and inter-religious controversy surrounding its content and
+boundaries.'' Based on contact as its constituent, ``{[}t{]}he religious
+field as a whole is not an essential unit {[}\ldots{]}, but instead
+produces its cohesion and limits through negotiation processes and
+dynamics of attraction''
+(\protect\hyperlink{ref-krech_religious_2012}{Krech 2012, 193--94,
+198}).
+
+\hypertarget{presence-and-absence}{%
+\section{Presence and Absence}\label{presence-and-absence}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}6{]}}}When considering the
+issue of religious contact in the Russian geographical space, one must
+take into account the specific conditions brought about by a history of
+empire and colonisation. In contrast with nations in Western Europe, for
+instance, Russia differs in sheer size and the highly diversified
+composition of its population; both of these circumstances are an
+outcome of a gradual expansion of the state that began in the sixteenth
+century and the subsequent colonisation of the newly incorporated lands
+(\protect\hyperlink{ref-kivelson_russia_2017}{Kivelson and Suny 2017,
+75--88}).\footnote{Regarding size, vast distances from the political and
+  religious centres of the hegemonic religious tradition in situations
+  of religious contact may provide some typological particularities.}
+Beyond the more immediately obvious reasons for colonial expansion, the
+process came to be associated with the bestowal of the ``gift of
+empire'' upon subjects who had principally not asked for it
+(\protect\hyperlink{ref-grant_captive_2009}{Grant 2009}). Still adhering
+to their supposedly outdated beliefs and practices, these people were
+thought to be in need of the gift of civilisation. In different periods
+and places, setting them on the right path of development meant
+conversion to Orthodox Christianity. The rhetoric of the ``civilising
+mission'' can likewise be detected in various shades in the Soviet
+period (\protect\hyperlink{ref-igmen_speaking_2012}{Igmen 2012};
+\protect\hyperlink{ref-stronski_tashkent_2010}{Stronski 2010}) and has
+been preserved in some circles to the present moment
+(\protect\hyperlink{ref-curanovic_guarding_2020}{Curanović 2020,
+1}).\footnote{See also the ultra-nationalist message propagated by the
+  makers of the video clip ``\textrussian{Я Русский Оккупант}'':
+  \url{https://www.youtube.com/watch?v=sZH8do_jhE4}.} Thinkers in the
+nineteenth century explained the elevated status of Russia with its
+inheritance of the holy mission to restore the Byzantine Empire, whose
+successor Russia had become with Moscow as a ``third Rome''
+(\protect\hyperlink{ref-curanovic_guarding_2020}{Curanović 2020, 3--4};
+\protect\hyperlink{ref-kopanski_burden_1998}{Kopanski 1998, 204--7}).
+For the Slavophile fraction, the superior rank of the Russian nation was
+specifically the consequence of its Slavic heritage.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}7{]}}}But let us take a
+closer look at the religious dimension of empire. As simply occupying
+territory and declaring it one's own does not have a lasting effect, the
+land together with the people living on it had to be changed in their
+essence. Christianisation was one of the means to truly claim the
+empire's new acquisitions. Constructing churches, building chapels and
+erecting crosses meant fastening the borderland space to the core
+regions and making it part of the Russian Empire
+(\protect\hyperlink{ref-curanovic_guarding_2020}{Curanović 2020, 3--4}).
+Thus, the native inhabitants became exposed to the teachings of the
+church, but churches and other sites would also designate the space as
+Russian and indicate the borders of the empire. Correspondingly, one may
+also discern that the Russification of space helps to implement an
+Orthodox Christian conceptual order. These kind of demarcation practices
+may again be noticed in the present, when, for instance, the Russian
+Orthodox Church plans to build, in the North Caucasus, a number of
+churches dedicated to the memory of Alexander Nevsky, who is celebrated
+for protecting the Russian homeland from foreign invasion
+(\protect\hyperlink{ref-curanovic_guarding_2020}{Curanović 2020, 6}).
+Surely, it is no coincidence that anger can be directed at these
+physical manifestations of Russian presence, as the targeting of
+churches by Muslim extremists in Dagestan and Chechnya in 2018
+demonstrates.\footnote{Similarly, ethnic Ossetian nativists forcefully
+  removed Orthodox Christian icons from a chapel and destroyed a
+  memorial stone with the sign of the cross in 2013. For more
+  information, see Shtyrkov
+  (\protect\hyperlink{ref-shtyrkov_sacred_2019}{2019, 142}).} In such
+flaring of rebellion, we may recognise the resistance of the local
+population against an intervention into their religious culture but
+sometimes also against their integration into the Russian nation-state.
+The political and the religious spheres are closely entangled, thus
+allowing for both political and religious interpretations of contact
+situations. Over centuries, missionary efforts were inhibited by
+indigenous resilience. In the Middle Volga region---to take one
+example---, conversion to Christianity among the native peoples occurred
+in three waves: the first after the conquest of Kazan in the
+mid-sixteenth century, the second under the reign of Peter the Great in
+the early eighteenth century and the third from the late nineteenth
+century to the revolution of 1905
+(\protect\hyperlink{ref-bryan_organization_1995}{Bryan 1995, 174--75}).
+However, apostasy of the newly converted was common and sometimes also
+seized those communities whose members had been practising Orthodox
+Christians for generations. Especially in the nineteenth century,
+collective apostasies became rather frequent
+(\protect\hyperlink{ref-kefeli_becoming_2014}{Kefeli 2014, 26--27}).
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}8{]}}}When in contact with
+people belonging to some of the native populations of Russia, it is not
+uncommon to hear the statement that their culture and the local
+landscape form one unit and cannot simply be separated. Accordingly,
+landscape becomes a vital element of religious space. This is an idea
+also taken up by the fiction writer Aleksei Ivanov, who in his books has
+been concerned with the question of colonisation and the recalcitrance
+of the land in the Urals and Siberia. In specific book sections,
+characters from his historical narratives wonder how it might be that
+churches were built and the indigenous people baptised and still it
+remains impossible to make the land one's own
+(\protect\hyperlink{ref-gorski_enchanted_2018}{Gorski 2018, 163,
+173--74}). Nor, Ivanov appears to suggest, can one ultimately grasp the
+natural (or spiritual?) laws that determine life in a specific
+environment and which have been intuitively absorbed by the original
+inhabitants of the land throughout the ages. As much as one tries to
+suppress the old beliefs and lifestyles, they are bound to resurface as
+``demons of the subconscious.'' The invisible, it turns out, might be a
+presence to haunt us.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}9{]}}}Another option for
+scholars with a particular interest in space and its perception would be
+an interpretation of the colonial encounter in terms of centre and
+periphery (\protect\hyperlink{ref-clowes_russia_2011}{Clowes 2011,
+5--6}). With regard to the historical expansion of the Russian state as
+well as the incorporation and control of formerly self-governed---but
+also ungoverned---non-Slavic territories, Moscow may be perceived as the
+colonising centre, whereas some of the inhabitants of the same
+territories hundreds of kilometres to the east or south of Moscow are
+nowadays very much aware of their political and economic dependence. In
+their minds, their native regions may have been reduced to the status of
+a colonised periphery. The centralising efforts of the state that
+commenced in the 2000s will have only contributed to such an estimation
+(\protect\hyperlink{ref-clowes_centrifugal_2016}{Clowes 2016, 118--20}).
+Even though the narrative of a providing centre and receiving periphery
+informs the thinking of citizens in Central Russia and other parts of
+the country, it hides the potential of the regions to contribute to a
+discussion about Russian culture and self-perception. After all, the
+supposed periphery is more than just an empty screen on which to project
+the centre's ideas of what constitutes national culture
+(\protect\hyperlink{ref-clowes_russia_2011}{Clowes 2011, 5--7}). There
+would be much to learn from ethnic minority discourses in the Russian
+regions, but unfortunately it seems that the willingness to engage in
+discussion and encourage the participation of various actors is lacking.
+In the centre's marginalisation of voices from the periphery, one may
+indeed discern a colonial dynamic.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}10{]}}}The examination of
+the empirical material---much, but not all of it from Russia---that our
+participants contribute to this special issue allows for further
+interpretation of the process of religious contact. Having repeatedly
+visited the city of Tyumen in Siberia over a period of several years,
+one of the editors of this journal issue recently wondered about the
+depiction of the place in a guidebook presented to him. Judging from the
+picture of a cathedral reproduced on its cover and the advertising of
+dozens of Orthodox Christian churches in the pages of the book, one
+would be tempted to perceive Tyumen as an epitome of Russianness. When
+taking a more long-term historical perspective, however, we realise that
+the city is located on the territory of what used to be the Khanate of
+Siberia; it was built on the land of Chingi-Tura, one of the khanate's
+cities, and the name is supposed to have Turkic origins
+(\protect\hyperlink{ref-brumfield_photographic_2000}{Brumfield 2000,
+310--11}). One may also discover a certain contrast between the
+guidebook that briefly mentions only one mosque, without accompanying
+the text with a picture here, and the impression to be gained on the
+streets of the city, which clearly has its ``Muslim'' neighbourhoods and
+whose ethnic composition appears to be more ``Eastern'' than that of
+many other Russian cities in the European part of the country. This is
+just one of a great number of examples that might serve to make the
+point that the presence of one part of the population in accounts of
+Russian history and culture can simultaneously mean the absence of
+others.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}11{]}}}The special issue,
+thus, aims at examining presence and absence within the greater
+framework of contact between religious traditions. Regarding the
+framework, we aim at scrutinising the type of religious contact that
+takes place when one party denies or ignores the presence of the other
+and forces it into a state of absence. We ask: What forms does Russian
+national culture assume in the present moment and what sources does it
+draw from? What do members of the ethnic and religious minorities make
+of such representations and how do they react to the denial of their
+presence? Who engages in the negotiation of belonging? How to decolonise
+Russian national and religious culture and how to claim a place for
+oneself? And where beyond the borders of the state is the narrative
+around Russian national culture being reproduced or challenged?
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}12{]}}}This is where we
+return to the ongoing formation of a Russian national identity, built
+upon convictions of Slavic superiority and Orthodox Christian divine
+ordinance. In that homogeneous picture of Russian national history and
+culture, the presence of ethnic and religious ``others'' is typically
+concealed. Scholars of culture and heritage have pointed out that
+heritage is of no stable substance and we ought to regard it as a
+construct that continues to be negotiated by various groups and
+individuals (\protect\hyperlink{ref-port_introduction_2018}{van de Port
+and Meyer 2018}). A religion's particular tradition is, after all, a
+matter of responses and challenges occurring in situations of contact.
+In the process where groups in ongoing contact produce tradition, some
+aspects of culture will be highlighted and others placed in the
+background or completely left out. One or another minority group may
+discover that they have been excluded from the compound of elements
+forming a nation's heritage. In those instances where in Western Europe
+ethnic or racial considerations have in the past impacted the
+representation of culture, we may speak of the ``whitening'' of a
+state's heritage or national identity
+(\protect\hyperlink{ref-witte_black_2019}{de Witte 2019, 611}). But in
+practice, it often becomes difficult to differentiate between exclusion
+for reasons of ethnic, racial or religious otherness. The Soviet Union
+liked to present itself as fair and considerate towards its
+multi-cultural population, although in effect it particularly promoted
+forms of culture that had their origins in Europe. Apart from that,
+ethnic culture was generally secondary to political ideology, while
+religion for the most part was either regarded a problem to be solved or
+not spoken of. With the breakdown of the Soviet Union, the question of
+ethnic and religious belonging returned to the political agenda of the
+Russian Federation. Specifying the nation's heritage and culture may
+also be a measure to react to the influx of working migrants from
+Central Asia or Azerbaijan that some perceive as foreign elements posing
+a threat to the subsistence of an uncorrupted culture
+(\protect\hyperlink{ref-tolz_compatriots_2015}{Tolz and Harding
+2015}).\footnote{But it may also be regarded a reaction to a more
+  general process of globalisation and the changes that go along with
+  it.} In this striving for a new national identity, minorities---both
+foreign and domestic---may be perceived as disrupting an ideal image and
+thus obstructing the ``closure'' of the nation
+(\protect\hyperlink{ref-tyrer_governing_2012}{Tyrer and Sayyid 2012,
+353--54}). In the rural winter scenery of \emph{maslenitsa} merriment,
+with the domes of the Orthodox church gleaming in the sun about to
+disappear beyond the forest of birch trees, little space is left for
+ethnic or religious diversity. When conceptualising Russia in this way,
+``others'' better not constitute part of the village environment,
+whereas in the urban environment they are advised to blend
+inconspicuously into the background. If they refuse to do so, it creates
+confusion. Not really there but potentially harmful, these ``others''
+are both absences and troubling presences, simultaneously unreal and
+hyperreal (\protect\hyperlink{ref-tyrer_governing_2012}{2012, 355}). In
+this respect, they resemble the ``demons of the subconscious'' from the
+previous page.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}13{]}}}As stated above,
+delineating and specifying a nation's heritage can only be a project in
+progress, although we see that the construction of a stable and ideal
+tradition may also be a response to challenging situations of contact.
+The emergence and stabilisation of a dogma in the field of religion
+corresponds to the emergence of ideal traditions and historical master
+narratives in the field of politics. The discourse about the nation
+involves numerous participants and its main themes may alter with time.
+Russia's ethnic and religious minorities, further, do not have to be
+passive recipients, but they can actively get involved in the
+negotiation of belonging. In their accounts of history and culture---in
+textbooks, museum exhibitions or art projects---, they may re-inscribe
+their own presence. Becoming aware of one's own culture and its
+contribution to history can have an empowering effect, making these
+minorities visible. Their accounts may also substantially differ from
+the dominant narrative and call it into question. And sometimes, they do
+not have to articulate anything, but only by engaging in certain customs
+and practices are they able to manifest a lived culture. Those customs
+might indicate beliefs and conceptions entirely at odds with the more
+widely shared sense of being in this world. In this case, efforts at
+decolonisation are no longer only concerned with rewriting history or
+broadening the category of heritage. Instead, one may understand these
+efforts as involved in the process of world-making, where one reality
+may be replaced with another
+(\protect\hyperlink{ref-blaser_pluriverse_2018}{Blaser and Cadena
+2018}). Here, self-confident individuals do not contend for inclusion in
+the picture of Russian national culture. In fact, they ignore it and set
+out to produce their own images of national culture or lived tradition,
+informed by their religious self-understanding. With regard to the theme
+of the special issue, this means that the relationship between presence
+and absence is reversed.
+
+\hypertarget{the-contributions-to-this-special-issue}{%
+\section{The Contributions to this Special
+Issue}\label{the-contributions-to-this-special-issue}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}14{]}}}Over the following
+pages, five authors share their evaluations of the diversity and
+multiplicity of Russian history and culture as well as the sometimes
+difficult relations with the immediate neighbours. In his paper about
+the Holy Rus', Oleksandr
+\protect\hyperlink{ref-zabirko_concept_2022}{Zabirko}
+(\protect\hyperlink{ref-zabirko_concept_2022}{2022}) provides the reader
+with an insight into an aspect of Russian national identity that assumed
+a particular form during the nineteenth century and continues to affect
+the perception of the country as an empire. With the concept of Holy
+Rus', Orthodox Christianity becomes one of the columns of national
+identification. But Zabirko points out how Holy Rus' also constitutes a
+spatial concept that was employed in the colonial expansion of the
+Russian state and in situations of encounter with ethnic and religious
+others. From a Russian nationalist perspective, then, the current
+military conflict in Eastern Europe may also be read as an effort to
+re-establish the sacred geography of Russia, ruptured by the
+independence of Ukraine.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}15{]}}}The text by Ivan
+\protect\hyperlink{ref-sablin_spiritual_2022}{Sablin}
+(\protect\hyperlink{ref-sablin_spiritual_2022}{2022}) can likewise be
+read as a contribution to the discussion about nation-building, but it
+focuses specifically on the late Soviet period. His research subject are
+parliamentary debates in the times of perestroika, where the involvement
+of representatives of different religious communities created situations
+of transcultural contact. The process of desecularisation that set in at
+this point in time was, at least in part, going to define the
+constitution of the emerging post-Soviet republics. For the omnipresence
+of Orthodox Christianity in these debates the author makes responsible
+previous power asymmetries. Already at a point so many years back,
+towards the end of the Soviet period, the picture of Russia taking shape
+in the context of discussion suggests a nationalist imagination.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}16{]}}}With the paper by
+Jesko \protect\hyperlink{ref-schmoller_place_2022}{Schmoller}
+(\protect\hyperlink{ref-schmoller_place_2022}{2022}), who also serves as
+one of the guest editors of the special issue, we are entering the
+contemporary moment. Schmoller looks into the situation of people from
+the Muslim minority in the Russian Urals before the background of
+Orthodox Christianity's presence and Islam's absence in representations
+of Russian history and culture. By going on pilgrimages in their native
+territory, these Muslim believers are able to reconnect with the
+surrounding land and claim a tradition that is neither indebted to
+Orthodox Christianity nor to an elevated Slavic civilisation. Their
+interaction with the landscape allows for a reinterpretation of what is
+being presented as Russian culture and---on a spatial level---it
+produces a place in an environment that otherwise tends to be
+interpreted in only Russian terms.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}17{]}}}Similar to the
+previous author, Victoria
+\protect\hyperlink{ref-kravtsova_zuleikha_2022}{Kravtsova}
+(\protect\hyperlink{ref-kravtsova_zuleikha_2022}{2022}) is concerned
+with the difficult circumstances of ethnic and religious minorities in
+present-day Russia, whose difference from mainstream Russian society is
+being erased. She analyses the book ``Zuleikha Opens Her Eyes'' by the
+writer Guzel Yakhina that was published in 2015 to wide acclaim. Yakhina
+tells the story of Zuleikha, a Tatar woman that is deported to Siberia
+in the context of Soviet collectivisation in the 1930s. By cutting ties
+with her ethnic and religious culture, Zuleikha is portrayed as becoming
+an emancipated woman of the young Soviet state. Metaphorically speaking,
+she is opening her eyes to the new Soviet reality. Kravtsova criticises
+how in the relative absence of post- and decolonial perspectives many
+readers did not even realise that negating the subjectivity of a
+non-Russian woman could be offensive to ethnic minority readers. She
+argues that the book does not question but confirms the
+(neo-)imperialist and (neo-)colonialist attitudes in contemporary
+Russian society.
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}18{]}}}Eventually, Mirja
+\protect\hyperlink{ref-lecke_early_2023}{Lecke}
+(\protect\hyperlink{ref-lecke_early_2023}{2023}) takes us beyond the
+borders of the Russian state to neighbouring Georgia, where she
+investigates the relationship between the Georgian Orthodox Church and
+the Russian Orthodox Church. This case of religious contact is a curious
+one, as some observers regard the churches as separate and equal,
+whereas others see nothing but a unity under Russian guidance. Like
+Kravtsova, the author draws upon artistic works for her analysis: a
+travel feature on Georgia by the Russian graphic artist Viktoria Lomasko
+and a documentary novel by the Georgian writer Lasha Bugadze. Lomasko
+sceptically questions the hegemonic discourse around the idea of ``unity
+in faith.'' Bugadze, on the other hand, rather perceives an unwholesome
+entanglement of the Georgian Orthodox Church with the state and in
+extension with Russia.
+
+\hypertarget{bibliography}{%
+\section*{References}\label{bibliography}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-blaser_pluriverse_2018}{}}%
+Blaser, Mario, and Marisol Cadena. 2018. {``Pluriverse: Proposals for a
+world of many worlds.''} In \emph{A world of many worlds}, edited by
+Marisol Cadena and Mario Blaser, 1--22. Durham: Duke University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-brumfield_photographic_2000}{}}%
+Brumfield, William Craft. 2000. {``Photographic documentation of
+architectural monuments in siberia: Tiumen province.''} \emph{Visual
+Resources} 16 (4): 309--50.
+\url{https://doi.org/10.1080/01973762.2000.9658565}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-bryan_organization_1995}{}}%
+Bryan, Fanny. 1995. {``Organization and work of missionaries in the
+Middle-Volga in the second half of the nineteenth century.''}
+\emph{Islam and Christian-Muslim Relations} 6 (2): 173--86.
+\url{https://doi.org/10.1080/09596419508721051}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-clowes_russia_2011}{}}%
+Clowes, Edith. 2011. \emph{Russia on the edge. Imagined geographies and
+post-soviet identity}. Ithaca: Cornell University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-clowes_centrifugal_2016}{}}%
+---------. 2016. {``Centrifugal forces? Russia's regional identities and
+initiatives.''} \emph{Region} 5 (2): 117--25.
+\url{https://doi.org/10.1353/reg.2016.0008}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-curanovic_guarding_2020}{}}%
+Curanović, Alicja. 2020. {``Guarding the motherland's frontiers: The
+russian orthodox church in the north caucasus.''} \emph{Problems of
+Post-Communism} 67 (6): 446--54.
+\url{https://doi.org/10.1080/10758216.2020.1734471}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-gorski_enchanted_2018}{}}%
+Gorski, Bradley. 2018. {``Enchanted geographies: Aleksei Ivanov and the
+aesthetic management of Ural regional identity.''} In \emph{Russia's
+regional identities: The power of the provinces}, edited by Edith
+Clowes, 160--85. Abingdon: Routledge.
+
+\leavevmode\vadjust pre{\hypertarget{ref-grant_captive_2009}{}}%
+Grant, Bruce. 2009. \emph{The captive and the gift. Cultural histories
+of sovereignty in russia and the caucasus}. Ithaca: Cornell University
+Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-igmen_speaking_2012}{}}%
+Igmen, Ali. 2012. \emph{Speaking soviet with an accent. Culture and
+power in kyrgyzstan}. Pittsburgh: University of Pittsburgh Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-kefeli_becoming_2014}{}}%
+Kefeli, Agnès Nilüfer. 2014. \emph{Becoming muslim in imperial russia.
+Conversion, apostasy, and literacy}. Ithaca: Cornell University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-kivelson_russia_2017}{}}%
+Kivelson, Valerie Ann, and Ronald Grigor Suny. 2017. \emph{Russia's
+Empires}. New York: Oxford University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-kopanski_burden_1998}{}}%
+Kopanski, Ataullah Bogdan. 1998. {``Burden of the Third Rome: The threat
+of Russian orthodox fundamentalism and Muslim eurasia.''} \emph{Islam
+and Christian-Muslim Relations} 9 (2): 193--216.
+\url{https://doi.org/10.1080/09596419808721148}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-kravtsova_zuleikha_2022}{}}%
+Kravtsova, Victoria. 2022. {``{`Zuleikha Opens Her Eyes'} in
+(Post-)Colonial Russia.''} \emph{Entangled Religions} 13 (8).
+\url{https://doi.org/10.46586/er.13.2022.9914}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-krech_religious_2012}{}}%
+Krech, Volkhard. 2012. {``Religious contacts in past and present times:
+aspects of a research programme.''} \emph{Religion} 42 (2): 191--213.
+\url{https://doi.org/10.1080/0048721X.2012.642572}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-lecke_early_2023}{}}%
+Lecke, Mirja. 2023. {``Early Twenty-First-Century Literary Images from
+the Margins of the Russian (Orthodox) World.''} \emph{Entangled
+Religions} 13 (8). \url{https://doi.org/10.46586/er.13.2022.10221}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-port_introduction_2018}{}}%
+Port, Mattijs van de, and Birgit Meyer. 2018. {``Introduction: Heritage
+dynamics. Politics of authentication, aesthetics of persuasion and the
+cultural production of the real.''} In \emph{Sense and essence: Heritage
+and the cultural production of the real}, edited by Birgit Meyer and
+Mattijs van de Port, 1--39. New York: Berghahn.
+
+\leavevmode\vadjust pre{\hypertarget{ref-portnov_russland_2022}{}}%
+Portnov, Andrii. 2022. {``Russland braucht eine Schuldkultur''.''}
+\emph{Neue Zürcher Zeitung}.
+\url{https://www.nzz.ch/feuilleton/russland-braucht-eine-schuldkultur-ld.1693068}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-sablin_spiritual_2022}{}}%
+Sablin, Ivan. 2022. {``A Spiritual Perestroika: Religion in the Late
+Soviet Parliaments, 1989--1991.''} \emph{Entangled Religions} 13 (8).
+\url{https://doi.org/10.46586/er.13.2022.9915}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-schmoller_place_2022}{}}%
+Schmoller, Jesko. 2022. {``A Place of One's Own: Pilgrimage and the
+Reinterpretation of Culture in Russia's Ural Region.''} \emph{Entangled
+Religions} 13 (8). \url{https://doi.org/10.46586/er.13.2022.9916}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-shtyrkov_sacred_2019}{}}%
+Shtyrkov, Sergei. 2019. {``Sacred landscapes through the lens of
+religious nationalism.''} \emph{Journal of Ethnology and Folkloristics}
+13 (2): 140--42. \url{https://doi.org/10.2478/jef-2019-0022}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-stronski_tashkent_2010}{}}%
+Stronski, Paul. 2010. \emph{Tashkent. Forging a soviet city,
+1930--1966}. Pittsburgh: University of Pittsburgh Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-tolz_compatriots_2015}{}}%
+Tolz, Vera, and Sue-Ann Harding. 2015. {``From {`Compatriots'} to
+{`Aliens'}: The changing coverage of migration on russian television.''}
+\emph{The Russian Review} 74 (3): 452--77.
+\url{https://doi.org/10.1111/russ.12025}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-tyrer_governing_2012}{}}%
+Tyrer, David, and Salman Sayyid. 2012. {``Governing ghosts: Race,
+incorporeality and difference in post-political times.''} \emph{Current
+Sociology} 60 (3): 353--67.
+\url{https://doi.org/10.1177/001139211142619}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-witte_black_2019}{}}%
+Witte, Marleen de. 2019. {``Black citizenship, Afropolitan critiques:
+vernacular heritate-making and the negotiation of race in the
+Netherlands.''} \emph{Social Anthropology} 27 (4): 609--25.
+\url{https://doi.org/10.1111/1469-8676.12680}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-zabirko_concept_2022}{}}%
+Zabirko, Oleksandr. 2022. {``The Concept of Holy Rus' in Russian
+Literary and Cultural Tradition: Between the Third Rome and the City of
+Kitezh.''} \emph{Entangled Religions} 13 (8).
+\url{https://doi.org/10.46586/er.13.2022.9964}.
+
+\end{CSLReferences}
+
+\end{document}
