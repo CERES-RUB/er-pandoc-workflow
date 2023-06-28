@@ -72,9 +72,9 @@ $endif$
 $if(section)$
 <p class="section">$section$</p>
 $endif$
+<header id="title-block-header">
 <hgroup>
 $if(title)$
-<header id="title-block-header">
 <h1 class="title">$title$</h1>
 $elseif(reviewed-title)$
 <h1 class="title">$reviewed-title$$if(reviewed-author)$, <span class="infix">written by</span> $elseif(reviewed-editor)$, <span class="infix">edited by</span> $endif$<span class="creator">$for(reviewed-author)$$it$$sep$, $endfor$$for(reviewed-editor)$$it$$sep$, $endfor$</span></h1>
