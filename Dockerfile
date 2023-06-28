@@ -24,7 +24,7 @@ RUN pip3 install \
 RUN tlmgr update --self \
     && tlmgr install ctex \
     				 footmisc \
-    				 soul \
+    				 koma-script \
                      zref
 
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
