@@ -1,0 +1,917 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+\PassOptionsToPackage{space}{xeCJK}
+%
+\documentclass[
+  english,
+  a4paper,
+  DIV=12,
+  footlines=2.1,
+  usegeometry=true]{scrartcl}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Charis SIL}
+  \setsansfont[]{Charis SIL Compact}
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \setCJKmainfont[]{Noto Serif CJK TC}
+  \fi
+  \ifLuaTeX
+    \usepackage[]{luatexja-fontspec}
+    \setmainjfont[]{Noto Serif CJK TC}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Horrordatei zum Testen vom neuen Textsatz},
+  pdflang={en},
+  pdfkeywords={Entangled Religions, religious contact, Markdown},
+  colorlinks=true,
+  linkcolor={NavyBlue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+
+%% ER Settings
+
+%% Page style, header and footer
+\usepackage[headsepline]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\lohead{\textsc{Heinig}}
+\rohead{\textit{Entangled Religions} 14.1 (2023)}
+%\cofoot[]{\thepage}
+\cofoot[]{}
+
+%% Page margin
+
+% We don’t use the page foot except on the first page.
+% This leads to a large bottom margin on most pages.
+% To solve this, we’re setting the bottom margin manually
+% and set footskip to 0pt. This completely merges the
+% foot into the text area.
+% We’re then using \enlargethispage{-5\baselineskip} to
+% create space for the foot on the first page.
+\usepackage[bottom=2.8cm,footskip=0pt]{geometry}
+
+%% Force loading of required packages
+\usepackage{booktabs,graphicx}
+
+%% Bookmarks/Outline
+\usepackage{bookmark}
+
+%% Text settings
+\tolerance=1000
+\widowpenalty=10000
+\clubpenalty=10000
+
+%% Colors
+\definecolor{parnum}{gray}{0.5}
+
+%% Figure captions
+\KOMAoptions{captions=tableabove}
+\addtokomafont{caption}{\normalfont\small}
+\addtokomafont{captionlabel}{\bfseries}
+\renewcommand*{\captionformat}{\quad}
+
+%% page headings
+\setkomafont{pageheadfoot}{%
+\normalfont\normalcolor\small}
+\setkomafont{author}{\large\scshape}
+\setkomafont{date}{\large}
+
+%% languages/scripts
+\newfontfamily\hebrewfont[Script=Hebrew]{FreeSerif}
+\newfontfamily\arabicfont[Script=Arabic]{Scheherazade}
+\newfontfamily\syriacfont[Script=Syriac]{Noto Sans Syriac Estrangela}
+\newfontfamily\greekfont[Script=Greek]{Gentium Plus}
+\newfontfamily\copticfont[Script=Coptic]{Noto Sans Coptic}
+\newfontfamily\ethiopicfont[Script=Ethiopic]{Noto Serif Ethiopic}
+\newfontfamily\amharicfont[Script=Ethiopic]{Noto Serif Ethiopic}
+
+%% enumerations
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+
+%% figure positioning
+\makeatletter
+\def\fps@figure{tbp}
+\makeatother
+
+%% set floats above footnotes
+\usepackage[bottom]{footmisc}
+
+%% End ER Settings
+
+
+%% pandoc-tablenos: required package
+\usepackage{caption}
+
+%% pandoc-tablenos: environment to disable table caption prefixes
+\makeatletter
+\newcounter{tableno}
+\newenvironment{tablenos:no-prefix-table-caption}{
+  \caption@ifcompatibility{}{
+    \let\oldthetable\thetable
+    \let\oldtheHtable\theHtable
+    \renewcommand{\thetable}{tableno:\thetableno}
+    \renewcommand{\theHtable}{tableno:\thetableno}
+    \stepcounter{tableno}
+    \captionsetup{labelformat=empty}
+  }
+}{
+  \caption@ifcompatibility{}{
+    \captionsetup{labelformat=default}
+    \let\thetable\oldthetable
+    \let\theHtable\oldtheHtable
+    \addtocounter{table}{-1}
+  }
+}
+\makeatother
+\ifXeTeX
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+  \setotherlanguage[]{greek}
+  \setotherlanguage[]{syriac}
+  \setotherlanguage[]{amharic}
+  \setotherlanguage[]{russian}
+  \setotherlanguage[]{hebrew}
+  \setotherlanguage[]{farsi}
+  \setotherlanguage[]{coptic}
+  \setotherlanguage[]{arabic}
+\else
+  \usepackage[greek,syriac,amharic,russian,hebrew,farsi,coptic,arabic,main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+  \newcommand{\textgreek}[2][]{\foreignlanguage{greek}{#2}}
+  \newenvironment{greek}[2][]{\begin{otherlanguage}{greek}}{\end{otherlanguage}}
+  \newcommand{\textsyriac}[2][]{\foreignlanguage{syriac}{#2}}
+  \newenvironment{syriac}[2][]{\begin{otherlanguage}{syriac}}{\end{otherlanguage}}
+  \newcommand{\textamharic}[2][]{\foreignlanguage{amharic}{#2}}
+  \newenvironment{amharic}[2][]{\begin{otherlanguage}{amharic}}{\end{otherlanguage}}
+  \newcommand{\textrussian}[2][]{\foreignlanguage{russian}{#2}}
+  \newenvironment{russian}[2][]{\begin{otherlanguage}{russian}}{\end{otherlanguage}}
+  \newcommand{\texthebrew}[2][]{\foreignlanguage{hebrew}{#2}}
+  \newenvironment{hebrew}[2][]{\begin{otherlanguage}{hebrew}}{\end{otherlanguage}}
+  \newcommand{\textfarsi}[2][]{\foreignlanguage{farsi}{#2}}
+  \newenvironment{farsi}[2][]{\begin{otherlanguage}{farsi}}{\end{otherlanguage}}
+  \newcommand{\textcoptic}[2][]{\foreignlanguage{coptic}{#2}}
+  \newenvironment{coptic}[2][]{\begin{otherlanguage}{coptic}}{\end{otherlanguage}}
+  \newcommand{\textarabic}[2][]{\foreignlanguage{arabic}{#2}}
+  \newenvironment{arabic}[2][]{\begin{otherlanguage}{arabic}}{\end{otherlanguage}}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+%% Footnotes (load after polyglossia!)
+\deffootnote{\leftmargin}{1em}{%
+\makebox[\leftmargin][l]{\thefootnotemark}%
+}
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{\leftmargin}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\title{Horrordatei zum Testen vom neuen Textsatz}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Untertitel zur Horrordatei}
+\author{Julia Heinig\\Centrum für Religionswissenschaftliche Studien,
+Ruhr-Universität Bochum}
+\date{}
+
+\begin{document}
+%% No additional space between sentences
+\frenchspacing
+
+\cleardoubleoddpage
+\thispagestyle{empty}
+\begin{singlespace}
+
+%% Logo
+\hfill\includegraphics[height=3\baselineskip]{Logo_ER.pdf}
+\noindent\rule{\textwidth}{\heavyrulewidth}
+
+%% Head
+\vspace*{.2\baselineskip}
+\noindent\begin{minipage}[c]{.13\textwidth}
+\scriptsize
+\parbox{.2\textwidth}{\includegraphics[height=2\baselineskip,width=\csname Gin@nat@width\endcsname,keepaspectratio]{cc-by.pdf}}
+\end{minipage}
+\begin{minipage}[c]{.4\textwidth}
+\scriptsize
+\raggedright
+DOI:~\href{https://doi.org/http://doi.org./10.13154/er.volume.year.ojsID}{http://doi.org./10.13154/er.volume.year.ojsID}\\
+License:~\href{http://creativecommons.org/licenses/by/4.0/}{Creative
+Commons Attribution 4.0}
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\textwidth}
+\scriptsize
+\raggedleft
+\textit{Entangled Religions} 14.1 (2023)\\
+\href{https://er.ceres.rub.de/}{er.ceres.rub.de}
+\end{minipage}
+
+%% Title
+\vspace*{2\baselineskip}
+{\usekomafont{title}\LARGE\noindent\raggedright Horrordatei zum Testen
+vom neuen Textsatz\par}
+\vspace*{.5\baselineskip}
+{\usekomafont{subtitle}\Large\noindent\raggedright Untertitel zur
+Horrordatei\par}
+\vspace{2\baselineskip}
+{\usekomafont{author}\noindent Julia
+Heinig\hspace{.25em}\href{https://orcid.org/0000-0001-8690-0832}{\includegraphics[height=1em]{orcid_iD.pdf}}\par}
+{\usekomafont{author}\normalfont\itshape\normalsize\noindent Centrum für
+Religionswissenschaftliche Studien, Ruhr-Universität Bochum\par}
+\vspace{\baselineskip}
+\vspace{2\baselineskip}
+\end{singlespace}
+\begin{quote}
+\small
+\begin{tabular}{@{}p{\linewidth}@{}}
+\toprule
+{\bfseries\scshape abstract}\hspace{1em}Lorem ipsum dolor sit amet,
+consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
+sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\\
+\midrule[\heavyrulewidth]
+{\bfseries\scshape keywords}\hspace{1em}Entangled Religions, religious
+contact, Markdown\\
+\bottomrule
+\end{tabular}
+\end{quote}
+\vspace{1.8181\baselineskip} % Since we altered line spacing, we need to adjust the vspace here.
+
+\setstretch{1.1}
+\hypertarget{text-farbig-rezania_azar}{%
+\section{Text farbig (Rezania\_Azar)}\label{text-farbig-rezania_azar}}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}1{]}}}\textbf{Y.9.1}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}2{]}}}{\emph{hāuuanīm ā
+ratūm ā haomō upāit̰ zaraθuštrǝm}} * \emph{pad hāwan radīh}
+{{[}{[}\emph{pad hāwan gāh}{]}{]}} \emph{hōm abar raft ō Zardušt}
+\end{quote}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}3{]}}}* {{[}\emph{ātrǝm
+pairi yaoždaθǝṇtǝm gāθåsca srāuuaiiaṇtǝm}{]}} * \emph{pad ātaxš-gāh
+pērāmōn yōǰdahrēnišnīh ka-š} {{[}{[}\emph{ān Ašem-wohū sē}{]}{]}}
+\emph{guft} {{[}{[}\emph{kē Frawarānēy ō pēš}{]}{]}}
+\end{quote}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}4{]}}}* {\emph{ādim pǝrǝsat̰
+zaraθuštrō kō narǝ ahī}} * *u-š az ōy pursīd Zardušt kū kē mard hē
+{{[}{[}hād nē pad yašt ī fradom būd az pēš paydāg. u-š dānist kū hōm ōh
+rasēd ud ka mad būd ā-š pursīd abāyist mad miθrō upāit zardušt ān paydāg
+kū-š šnāxt ēd rāy čē ān zamān abāg yazdān wēš būd ēstād u-š yād āšnāgtar
+būd hēnd. u-š ēn fragard warm būd u-š abāyist rāy abāg hōm ul guft.* *
+\emph{ast kē ēdōn gōwēd hād} * \emph{Ohrmazd guft ēstād kū harw dō ōh
+rasēnd ud ka hōm mad būd ā-š madan šnāsēd.}{]}{]}}
+\end{quote}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}5{]}}}* {\emph{yim azǝm
+vīspahe aŋhǝ̄uš astuuatō sraēštǝm dādarǝsa xᵛahe gaiiehe xᵛanuuatō
+amǝṣ̌ahe}} * \emph{kē man az harwisp axw ī astōmand ā-m nēktar dīd hē
+čē-t ān ī xwēš ǰān nēk kard ēstēd ud amarg} {{[}{[}\emph{hād ā-š pad
+frārōnīh ā amarg kerd estēd nē ēdōn čiyōn awēšān kē gōšt ī ǰam ǰūd u-šān
+andar tan amarg kerd estād tā bē az tan harw kas-ēw amarg}
+{[}\ldots{]}{]}{]}}
+\end{quote}
+
+\hypertarget{sprachen}{%
+\section{Sprachen}\label{sprachen}}
+
+\hypertarget{griechisch}{%
+\subsection{Griechisch}\label{griechisch}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}6{]}}}\textgreek{ὁποιόν τι
+καὶ πρὸς τὴν Μάρθαν εἰπεν ὁ σωτὴρ ἀσχολουμένην περὶ πολλὰ καὶ
+περιελκομένην καὶ ταρασσομένην διακονικῶς, τὴν δὲ ἀδελφὴν αἰτιωμένην ὅτι
+τὸ ὑπερετεῖν ἀπολιποῦσα τοῖς ποσὶν αὐτοῦ παρακάθηται μαθητικὴν ἄγουσα
+σχολήν · ``σὺ περὶ πολλὰ ταράσσῃ·Μαρία δὲ τὴν ἀγαθὴν μερίδα ἐξελέξατο,
+καὶ οὐκ ἀφαιρεθήσεται αὐτης.'' οὑτως καὶ τοῦτον ἐκέλυε τῆς
+πολυπραγμοσύνης ἀφέμενον ἑνὶ προστετηκέναι καὶ προσκαθέζεσθαι, τῇ χάριτι
+τοῦ ζωήν αἰώνιον προστιθέντος}
+
+\hypertarget{chinesich-mukai}{%
+\subsection{Chinesich (Mukai)}\label{chinesich-mukai}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}7{]}}}This paper discusses
+the complexity of the religious traditions in Quanzhou (Fujian, China),
+the largest international trade port under Mongol rule. The contribution
+of presumed Persian Muslim Pu Shougeng 蒲壽庚to the reconstruction of a
+Taoist-Buddhist shrine was taken as the case study. The external
+conditions surrounding his composite religious act (beyond private
+beliefs) were also observed in terms of individual goals, backgrounds,
+and social networks. For this purpose, the author presents the Chinese
+stone inscription from Quanzhou (in Fujian, China) titled ``Zhong jian
+Qingyuan Chunyang dong ji 重建清源純陽洞記 (Record of Reconstruction of
+the Chunyang Cave in Qingyuan Mountain),'' dated to the fourth year of
+Hou-Zhiyuan 後至元 (1338) during the Yuan period.
+
+\hypertarget{syriac-mustataprobleme}{%
+\subsection[Syriac (Mustata)]{\texorpdfstring{Syriac
+(Mustata\footnote{Hier gab es besonders Probleme mit den Fußnoten
+  innerhalb des Syrischen --\textgreater{} falsche Schriftart in der
+  Ausgabe vs Durcheinanderbringen der Reihenfolge der Textauszüge, wenn
+  FN aus Sprachauszeichnungen ausgenommen werden.})}{Syriac (Mustata)}}\label{syriac-mustataprobleme}}
+
+\begin{itemize}
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}8{]}}}\textbf{fol.~33v-58r}:
+  Kadavil Chandy's \emph{mēmrā} on the Eucharist. The title and the tune
+  anthem is missing; it begins with the first verse under the heading
+  \emph{ālap} (\textsyriac{ܐ}) of the acrostic. Incipit: (\textsyriac{܀
+  ܐܵܒܵܐ ܠܲܒܪܹܗ̣ ܝܼܚܝܼܕܵܝܵܐ ܠܥܵܠܲܡ ܫܲܕܲܪ܀ ܕܓܹܢܣܵܐ ܕܐܢ̈ܫܵܐ ܕܲܒܝܼܕ ܗܘܵܐ
+  ܢܒܲܫܩܲܪ{[}\^{}9{]} ܐܵܦܿ ܢܹܣܥܘܿܪ܀}). The scribe copied the tune anthem,
+  which usually follows the title of the poem, only at the end of the
+  \emph{mēmrā} (on fol.~57v-58r).
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}9{]}}}\textbf{fol.~58r-69v}:
+  Kadavil Chandy's \emph{mēmrā} on the Syriac language. Title and
+  incipit: (\textsyriac{ܫܝܼܪ̈ܬܵܐ ܕܥܲܠ ܩܘܼܠܵܣ ܠܹܫܵܢܵܐ ܣܘܼܪܝܝܵܐ ܒܿܩܲܠ
+  ܣܓܖܝܼܢܲܢ{[}\^{}10{]} ܒܲܪܟܝܼܢܲܢ. ܠܚܲܕ ܟܝܵܢܵܐ ܡܥܠܝܐ܀ ܡܲܘܕܹܝܢܲܢ. ܒܲܫܡܹܗ
+  ܡܬܘܿܡܵܝܵܐ܀ ܕܲܐܒܵܐ ܘܲܒܼܪܵܐ. ܘܪܘܼܚܵܐ ܕܩܘܼܕܫܐ.}).
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}10{]}}}\textbf{fol.~69v-71r}:
+  Canticle of glorification in praise of St.~Mary. Title and incipit:
+  (\textsyriac{ܬܫܒܘܿܚܬܵܐ ܕܡܲܪܬܿܝ ܡܲܪܝܲܡ{[}\^{}10a{]} ܒܿܪܝܼܟܼ ܚܢܵܢܵܐ
+  ܕܲܒܼܛܲܝܒܘܼܬܹܗ̣ ܦܲܪܢܹܣ ܚܲܝܝ̈ܢ ܒܲܢܒܝܼܘܼܬܼܵܐ܀}).
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}11{]}}}\textbf{fol.~71r-72r}:
+  Intercession before the altar. Title and incipit: (\textsyriac{ܒܥܘܬܐ
+  ܖܩܖܡ ܡܖܒܚܐ{[}\^{}10b{]} ܐܲܒܵܐ ܕܩܘܼܫܬܐ ܗܐ ܒܪܵܟ ܕܹܒܚܵܐ ܕܲܡܪܥܹܐ ܠܵܟܼ܀}).
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}12{]}}}\textbf{fol.~72v-74r}:
+  Untitled hymn about the Crucifixion of Christ. In the first part of
+  the hymn the Greek \emph{Trìs hágion} hymn is meant to be repeated
+  after some of the stanzas, while after other stanzas the words of
+  Christ ``My people, what have I done to thee?'' are to be repeated.
+  Incipit: (\textsyriac{ܥܲܡܝ ܡܵܢܵܐ ܥܹܒܼܕܲܬܼ{[}\^{}11{]} ܠܵܟܼ܆ ܥܢܝܼܢܝ
+  ܒܿܡܲܢ ܐܲܟܼܪܝܼܬܵܟܼ܀ ܕܡ̣ܢ ܐܲܪܥܵܐ ܕܡܹܨܪܹܝܢ: ܐܲܦܿܩܹܬܼ ܠܲܓܦܹܬܵܟ܀}).
+\end{itemize}
+
+\hypertarget{geez-gebreyes-auch-miszelle-von-dege-muxfcller}{%
+\subsection{Ge'ez (Gebreyes, auch: Miszelle von
+Dege-Müller)}\label{geez-gebreyes-auch-miszelle-von-dege-muxfcller}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}13{]}}}It is obvious that
+the edict was strictly obeyed among the Christian subjects of the
+kingdom. But for those who disobeyed, the punishment was also specified:
+\textamharic{ወዘንተ፡ ዘኢገብረ፡ ይትበርበር፡ ቤቱ፡ ወይትኰነን፡ ሥጋሁ፡ እንዘ፡ ይብል፡ አዘዘ፡ ንጉሥ፡
+በውስተ፡ ኵሉ፡ ዓለም፡} (`He who did not heed {[}this prescription{]} had his
+house pillaged and corporal punishment was also administered to the
+guilty party to recall that the king should be obeyed by everybody')
+
+\hypertarget{russich-lecke}{%
+\subsection{Russich (Lecke)}\label{russich-lecke}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}14{]}}}\textrussian{«Мне
+кажется, что и в советское время люди чувствовали негласную иерархию.
+Русские были титульной нацией. Белорусы и украинцы --- младшими
+братьями. Потом кавказские народы --- они не славяне, от нас дальше, но
+у них древняя культура, солнце, море и вкусная еда. И, наконец, народы
+Средней Азии, чьи территории были насильственно присоединены в ходе
+колониальных войн, а в советская время достаточно произвольно поделены
+на республики», --- размышляет Виктория.}
+
+\hypertarget{hebruxe4isch-haim}{%
+\subsection{Hebräisch (Haim)}\label{hebruxe4isch-haim}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}15{]}}}\texthebrew{צׄונין
+גופת י'י כודאה גׄאדה ריכתה אמדן תני תו ואשכארה כרדה אמד שַרְמְגָּאה תו
+פא} \texthebrew{והאריהא תו אבא דוסתאן תו ואבא המא בותיהא זישתיהא תו
+וצׄון כוניהא פסראן תו אן כי בי דאדי פא אישאן} (\emph{čunīn guft
+\textbf{adonay} ḫ\textsuperscript{w}adāh ǧāda-yi riḫta āmadan-i tan-i tu
+wa-āškāra karda āmad šarmgāh-i tu pa wahārīhā-yi tu abā dūstān-i tu
+wa-abā hamā butīhā-yi zištīhā-yi tu wa-čun ḫūnīha-yi pusarān-i tu ān ki
+bi-dādī pa īšān})
+
+\hypertarget{perisch-paragraphnummer-erscheint-in-der-ausgabe-bisher-auf-der-linken-seite}{%
+\subsection{Perisch (Paragraphnummer erscheint in der Ausgabe bisher auf
+der linken
+Seite)}\label{perisch-paragraphnummer-erscheint-in-der-ausgabe-bisher-auf-der-linken-seite}}
+
+\hypertarget{bertolacci}{%
+\subsubsection{Bertolacci}\label{bertolacci}}
+
+\begin{farsi}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}16{]}}}\textfarsi{فرغ من
+تسوید هذه المجلّدة الداعي لصاحبها أینما کان محمود بن عليّ بن محمّد
+\textbar{} ابن عليّ الوندکلي وهي قریة من إحدی قری قاسان حماها الله من
+طوارق \textbar{} الحدثان في أوائل ربیع الأوّل من شهور سنة ثمان عشر
+وسبعمائة \textbar{} وقد کتب من نسخة سقیمة کثیرة التصحیفات قلیلة
+التصحیحات \textbar{} والکاتب في أیدي الزمان أسیر و في قید الهوان کسیر
+\textbar{} ومع ذلك لا یقدر علی إدراك معانیها وإبدال ألفاظها وقد
+\textbar{} استمسك بالعروة الوثقی أعني ألطاف المولی أن یبلّ (؟) عليّ
+\textbar{} ذیل الإغماض وإلّا فاقض ما أنت قاض فإنّه قد بلغت نفسي
+\textbar{} بأقصی غایة جهدها ولا یکلّف الله نفساً إلّا وسعها \textbar{}
+وصلّی الله علی خیر الأخیار محمّد وصحبه الأبرار.}
+\end{quote}
+
+\end{farsi}
+
+\begin{farsi}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}17{]}}}\textfarsi{هو\textbar{}
+إنّ هذا الکتاب {کان في مطالعة جدّي} وسیّدي وإسنادي {صدر} الحکماء بدر
+العلماء شمس السماء \textbar{} قمر الخضراء النیّر الأعظم ومنوّر العالم
+{صدر} الحقیقة {محمّد} الماضي علیه من الله السلام {ثمّ انتقل منه إلی
+ولده} \textbar{} العلّامة {وهو أبي} وسيّدي وأستادي فخر آبائي وأجدادي
+إمام الحکمة {غیاث} النفوس \textbar{} کاشف الغمّة صاحب الهمّة الإمام
+الجامع الغالب علی الشیخ الرئیس والحکیم العظیم الفائق علی \textbar{}
+أرسطاطالیس أکمل أهل النظر أستاد البشر العقل الحادي عشر أعني الحضرة
+العلیّة البهیّة \textbar{} والسدّة السنیّة الجلیّة الفیلسوفیة {غیاث}
+الأنام {المنصور} کاسمه ناصر الشریعة والإسلام \textbar{} {ثمّ انتقل منه
+إلی ابنه} وتلمیذه بل أقلّ عبد من عبیده الباسط ذراعیه بالوصید \textbar{}
+{محمّد بن علي} (؟) {منصور بن محمّد الحسیني} المشتهر {بصدر الثاني} شرح
+الله صدره ورفع قدره.}
+\end{quote}
+
+\end{farsi}
+
+\hypertarget{rezania-azva-zweifarbig-markiert}{%
+\subsubsection{Rezania Azva (zweifarbig
+markiert)}\label{rezania-azva-zweifarbig-markiert}}
+
+\begin{farsi}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{39}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}18{]}}}{زابهاش هروند اسپ و
+  فه هروار دم له چایند} * فروزهاش بسیار است و بشمار در نیایند
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{40}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}19{]}}}{فر هوشام لی هروار
+  خمیده هزهیشام خر میم بهنام اسپ که سارام اورنگرامان و حمیدگان نوند شکار
+  هواند} * فرشتگان بی‌شمار آفریده از ایشان نخستین خرد نخست است که همه
+  خردها و آفریدگان زیردست اویند
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{41}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}20{]}}}{نزم مانیستار که
+  فدسمند اسپ ویودسرو نویشرامان است} * پس روان سپهر برتر که بس بزرگست و
+  سالار همه روانهاست
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{42}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}21{]}}}{یرسریربد وهو فرسار
+  سروسریرام اسپ} * پس تنبد و او سالار همه تنهاست و تن‌بد نام سپهر {و
+  تن‌بد نام سپهر برترین است} برترین است
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{42}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}22{]}}}{یرسریربد وهو فرسار
+  سروسریرام اسپ} * پس تنبد و او سالار همه تنهاست و تن‌بد نام سپهر برترین
+  است
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{43}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}23{]}}}{سیامکان و هرنامگان
+  و هرنامگانیان و شاورام و تاو رام سارام خمیده هواند هزهو فستام پم
+  هیشام} * آزادان و وارستگان و تنان و تنانیان و گوهرها و ناگوهرها همه
+  آفریده اویند از او آفرین برایشان
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\leavevmode\marginpar{\textcolor{parnum}{{[}24{]}}}{[}\ldots{]}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{46}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}25{]}}}{فه سام زمرپان وای}
+  * بنام مهربان خدای
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{47}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}26{]}}}{تشتاریدن رام برج
+  ادهابیغی و سابیغی} * پاک شدن دو گونه است امیغی و رواییی
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{48}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}27{]}}}{هابیغی منا درافه
+  افرکنون له بر تن و هموزیدگیها سجردن} * امیغی دل را به بدی نه بستن و
+  نکوهیدگیها ستردن {مانند خشم و کام از دل زدودن}
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{49}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}28{]}}}{و سابیغی هانچیم دم
+  پرکتار یاج هاسد سلودن} * و رواییی آنچه در آشکار بد باشد زدودن {چون
+  اویژگی و ناپازی آشکاری}
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{50}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}29{]}}}{وهیم تشتاریدن فه
+  جریفترپامد} * و این پاک شدن به آب یفتر باشد {و یفتر آبیست که رنگ و بوی
+  و مزه او نگشته بود و بدبوی نشده ورنه گلاب و مانند آن پاک‌ون ستوده جم
+  است.}
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{51}
+\tightlist
+\item
+  \leavevmode\marginpar{\textcolor{parnum}{{[}30{]}}}{وجرسود دم کاو
+  سمید} * و آب کرد در خورد تنه و توش {باید دانست که آب کرد آنرا گویند که
+  تن و چیز بدان پاک شود و آن در خورد تن آمده پس در خورد تن پیل رودی و
+  مردم را آنمایه که درو سراپا فرو شود و بهر پشه همینه}
+\end{enumerate}
+\end{quote}
+
+\end{farsi}
+
+\hypertarget{koptisch-colditz}{%
+\subsection{Koptisch (Colditz)}\label{koptisch-colditz}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}31{]}}}BeDuhn and Gardner
+have argued on the basis of \emph{Dublin Kephalaia} 353.28
+{[}\textcoptic{ⲥ}{]}\textcoptic{ⲁⲡⲱⲣⲏⲥ ⲡ}{[}\textcoptic{ⲣ̅ⲣⲟ
+ⲛ̅ⲧⲟ}{]}\textcoptic{ⲩⲣⲁⲛ} /\emph{{[}S{]}apōrēs p-{[}erro en-to{]}uran}/
+``{[}Š{]}ābuhr the {[}king of T{]}ūrān'' that this king was Šābuhr, son
+of the Sasanian king of kings Šābuhr I (240--272 C.E.), who is mentioned
+in the inscription of the latter at the Kaʿbe-ye Zardošt at Naqš-e
+Rostam (ca. 260--262 C.E.) as ``king of the Mesene'' {[}ŠKZ § 34: MP.,
+Parth. \emph{mēšān-šah}, Gr. \textgreek{Μησανηνῶν βασιλέως}.
+
+\hypertarget{hieroglyphen-shalomi-hen}{%
+\subsection{Hieroglyphen (Shalomi-Hen)}\label{hieroglyphen-shalomi-hen}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}32{]}}}The attestation of
+\includegraphics{figure1.svg} -- \emph{I͗hwi͗w} Ihuiu/\emph{ᵓa-hu-ᵓu}
+comes from the Biography of \emph{H̱ty}, an overseer of the quarries,
+dated to the Eleventh Dynasty (ca. 2000 BCE).{[}\^{}3{]} Although this
+attestation is too early for the time frame set for this paper, it is
+discussed here because some scholars consider
+\includegraphics{figure1.svg} -- \emph{I͗hwi͗w} Ihuiu/\emph{ᵓa-hu-ᵓu} to
+be an early orthography of the later YHWA/YHA/YH.
+
+\hypertarget{arabisch}{%
+\subsection{Arabisch}\label{arabisch}}
+
+\begin{Arabic}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}33{]}}}(3) \ldots{} ثم قالوا
+\textbf{كي ايل ديعو{[}ث{]}} (4) \textbf{יי'} وفيه قولان الواحد \ldots{}
+والاخر ان الله عارف الخفيات عن الناس فمن تعاطا الكلام (6) عليها فقد تكلم
+بما ينكره الله عليه وفي مثل ذلك قال داود عليه السلم (7) \textbf{ولوا
+هلاختي بغذولوث وبنيفلاوث مماني}
+
+\end{Arabic}
+
+\hypertarget{tabellen-und-bilder}{%
+\section{Tabellen und Bilder}\label{tabellen-und-bilder}}
+
+\hypertarget{kruxfcgerradermacher-miszelle}{%
+\subsection{Krüger/Radermacher
+Miszelle}\label{kruxfcgerradermacher-miszelle}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}34{]}}}See table
+\ref{tbl:table1} and figure \ref{fig:figure1}:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.22}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.39}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.31}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.09}}@{}}
+\caption{Inventory of the collection. \label{tbl:table1}}\tabularnewline
+\toprule
+\textbf{Object} & \textbf{Designation according to Worms (German)} &
+\textbf{Designation according to the Inventory (German)} &
+\textbf{Inv.-No.} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Object} & \textbf{Designation according to Worms (German)} &
+\textbf{Designation according to the Inventory (German)} &
+\textbf{Inv.-No.} \\
+\midrule
+\endhead
+Conical stone & Phallus-Stein & Phallus-Stein, Australien & 12 \\
+Clapstick & eingravierte Holzstäbe; Klabgstäbe; Xylophone & Klangholz,
+Australien & 13 \\
+Clapstick & & Klangholz, Australien & 14 \\
+Spear point & Speerspitzen & Speerspitze, Australien & 15 \\
+Spear point & & Speerspitze, Australien & 16 \\
+lancet-shaped mother-of-pearl plates & mythologische Perlmutter-blätter;
+lanzetförmige Perl-mutterstücke & Lanzette, Perlmutter, Australien &
+17 \\
+lancet-shaped mother-of-pearl plates & & Lanzette, Perlmutter,
+Australien & 18 \\
+Stone tools (12) & Klein-Steinwerkzeuge & Steine, Australien {[}partly
+lost{]} & 18,1--6 \\
+Headdress & Kopfschmuck & Schleier & 19 \\
+Stone tools (50) & 50 Steinwerkzeuge & Sammlung von Steinwerkzeugen
+{[}partly lost{]} & 20 \\
+Thread cross & Fadenkreuz & Fadenkreuz vom Grabkult der Australschwarzen
+& 23 \\
+Thread cross & & {[}not inventoried/lost{]} & \\
+Tjurunga (stone) & tellergrosses Stein-Tjuringa & {[}not
+inventoried/lost{]} & \\
+Tjurunga (wood) & großes Tjuringa (90 cm) & {[}not inventoried/lost{]}
+& \\
+Tjurunga (wood) & zwei kleinere Tjuringa & {[}later inventoried{]} &
+14,2? \\
+Tjurunga (wood) & & {[}later inventoried{]} & 14,3? \\
+Lara (wood) & eingraviertes Holz, Tjuringa ähnlich & {[}later
+inventoried{]} & 14,1? \\
+Tjurunga (wood)
+
+{[}?{]} & Tjuringa-Schwirrholz {[}Antweiler{]} {[}?{]} & {[}not
+inventoried/lost{]} {[}?{]} & \\
+Stone axe & Steinbeil, gehämmert und geschliffen & {[}not
+inventoried/lost{]} & \\
+Stone knife & Steinmesser für Initiationszeremonien & {[}not
+inventoried/lost{]} & \\
+Pastel drawings (5) & 5 Pastellzeichnungen eines australischen
+Eingeborenen & {[}not inventoried/lost{]} & \\
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+\hypertarget{fig:figure1}{%
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure1.png}
+\caption[Conical Stone, Religionskundliche Sammlung der Westfälischen
+Wilhelms-Universität Münster, Inv. No.~12, © Institut für
+Religionswissenschaft, WWU Münster, 2021)]{Conical Stone,
+Religionskundliche Sammlung der Westfälischen Wilhelms-Universität
+Münster, Inv. No.~12, © Institut für Religionswissenschaft, WWU Münster,
+2021)\footnotemark{}}\label{fig:figure1}
+}
+\end{figure}
+\footnotetext{Some of the objects examined in this article are subject
+  to secrecy in their societies of origin and are considered
+  secret/sacred. This applies in particular to the tjuringas, which,
+  according to tradition, may not be viewed by women and/or outsiders.
+  On the other hand, social-scientific research is increasingly required
+  to ensure gender-neutral access (see Raabe 2017). Faced with this
+  conflict of accessibility and restrictions, the authors have chosen to
+  depict the objects discussed here through simplified line drawings
+  that are not equivalent to original photographs.}
+
+\hypertarget{stadlbauer}{%
+\subsection{Stadlbauer}\label{stadlbauer}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\caption{Asylum applications from the European Union by country of
+origin in the years 2014 and 2015 {[}translated from Bundesamt 2016{]}.
+\label{tbl:asylum}}\tabularnewline
+\toprule
+Rank & State of Origin & 2014 & 2015 & Shift 2014/2015 \\
+\midrule
+\endfirsthead
+\toprule
+Rank & State of Origin & 2014 & 2015 & Shift 2014/2015 \\
+\midrule
+\endhead
+1 & Syria & 122,065 & 368,400 & +201.8\% \\
+2 & Afghanistan & 41,405 & 181,360 & +338.0\% \\
+3 & Iraq & 21,365 & 124,905 & +484.6\% \\
+4 & Cosovo & 37,890 & 72,465 & +91.3\% \\
+5 & Albania & 16,950 & 67,740 & +299.6\% \\
+6 & Pakistan & 22,220 & 47,840 & +115.3\% \\
+7 & Eritrea & 36,945 & 34,105 & -7.7\% \\
+8 & Nigeria & 20,065 & 31,165 & +55.3\% \\
+9 & Serbia & 30,840 & 30,050 & -2.6\% \\
+10 & Iran & 10,905 & 26,550 & +143.5\% \\
+\bottomrule
+\end{longtable}
+
+\begin{tablenos:no-prefix-table-caption}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.06}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.47}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.47}}@{}}
+\toprule
+\endhead
+1 & \textbf{\emph{Bevor war ich ein Fisch in einem kleinen Aquarium.}} &
+\textbf{Before, I was a fish in a small aquarium.} \\
+2 & \emph{Aber jetzt, nein, ich liebe Gott.} & But now, no, I love
+God. \\
+3 & \emph{Bevor Gott sagte, du musst das, das, das} & Before, God said
+you have to do this, this, this. \\
+4 & \emph{Aber jetzt weiß ich, mein Gott ist groß.} & But now I know my
+God is large. \\
+5 & \emph{Er ist freundlich.} & He is friendly. \\
+6 & \emph{Ich habe keine Angst.} & I have no fear. \\
+7 & \emph{Aber bevor hatte ich viel Angst.} & But before I had a lot of
+fear. \\
+8 & \textbf{\emph{Und jetzt bin ich in einem großen Meer.}} &
+\textbf{And now I am in a large ocean.} \\
+9 & \emph{Viele Möglichkeiten.} & Many opportunities. \\
+10 & \emph{Ich kann denken.} & I can think. \\
+11 & \emph{Ich kann fragen.} & I can ask. \\
+12 & \emph{Ich kann lesen, lernen.} & I can read, learn. \\
+13 & \emph{Und ich bin frei.} & And I am free. \\
+\bottomrule
+\end{longtable}
+
+\end{tablenos:no-prefix-table-caption}
+
+\hypertarget{original-date-in-2-in-text-citations-hintereinander-in-einer-klammer-in-warner}{%
+\section{Original Date (in 2 in-text citations hintereinander in einer
+Klammer, in
+Warner)}\label{original-date-in-2-in-text-citations-hintereinander-in-einer-klammer-in-warner}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}35{]}}}Omidsalar
+(\protect\hyperlink{ref-omidsalar_ali_2010}{{[}1389{]} 2010--2011},
+\protect\hyperlink{ref-omidsalar_justari_2014}{{[}1393{]} 2014--2015})
+has forcefully pushed back against scholarly assumptions of Rabīʿ's
+total hostility to the \emph{Shāh nāma} and its contents. While I share
+Omidsalar's opposition to a simplistic reading of the \emph{ʿAlī nāma}
+as evidence for a generalised hostility between Shīʿī Muslims and the
+stuff of Iranian `national' epic
+(\protect\hyperlink{ref-omidsalar_ali_2010}{{[}1389{]} 2010--2011,
+52--54}), I will argue below that the antipathy that Rabīʿ's poem
+projects towards Ferdowsi is real and substantial, expressing not a
+universal sentiment but the particular mimetic concerns of Rabīʿ
+himself. Specific points of divergence with Omidsalar's arguments in
+this regard will be addressed below as and when they appear.
+
+\hypertarget{weitere-sonderfuxe4lle}{%
+\section{Weitere Sonderfälle}\label{weitere-sonderfuxe4lle}}
+
+\hypertarget{bogdan-2023}{%
+\subsection{Bogdan 2023}\label{bogdan-2023}}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}36{]}}}5°=6\textsuperscript{□}
+
+\leavevmode\marginpar{\textcolor{parnum}{{[}37{]}}}spiritual legitimacy
+to found the Order of the Silver Star, or A∴A∴
+
+\hypertarget{manuelle-reference-list}{%
+\subsection{Manuelle Reference List}\label{manuelle-reference-list}}
+
+\hypertarget{bibliography}{%
+\section*{References}\label{bibliography}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-omidsalar_ali_2010}{}}%
+Omidsalar, Mahmoud. (1389) 2010--2011. {``ʿAlī nāma, Shāh nāma wa naqdī
+bar sākhtārhā-yi īdiʾūlūzhīk dar muṭāliʿāt-i ḥamāsī {[}The \emph{ʿAlī
+nāma}, the \emph{Shāh nāma} and a Critique of the Ideological Structures
+in the Study of Epic{]}.''} \emph{Ḍamīma-yi Āyīna-yi Mīrāth} 20: 35--56.
+
+\leavevmode\vadjust pre{\hypertarget{ref-omidsalar_justari_2014}{}}%
+---------. (1393) 2014--2015. {``Justārī dar ʿadam-i taʿāruḍ-i ʿAlī nāma
+bā Shāh nāma-yi Firdawsī {[}An Investigation of the Lack of Conflict
+Between the \emph{ʿAlī nāma} and the \emph{Shāh nāma} of Ferdowsi{]}.''}
+\emph{Adyān, Madhāhib wa ʿIrfān} 2: 11--26.
+
+\end{CSLReferences}
+
+\end{document}
