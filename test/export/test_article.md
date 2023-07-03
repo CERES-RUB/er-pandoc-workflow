@@ -260,7 +260,7 @@ Table: A test table {#tbl:tab1 colwidth=".2 .15 .15 .5"}
 
 Der Ausstellungsraum ist in Abbildung @fig:img1 zu sehen.
 
-![Insert Image 1 here](Image 1.tif){#fig:img1}
+![Insert Image 1 here](Image1.tif){#fig:img1}
 
 ---
 references:
