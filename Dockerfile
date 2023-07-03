@@ -1,4 +1,5 @@
-FROM pandoc/latex:3.1-ubuntu
+#FROM pandoc/latex:3.1-ubuntu
+FROM pandoc/latex:edge-ubuntu
 
 WORKDIR /data
 
