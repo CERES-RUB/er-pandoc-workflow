@@ -17,7 +17,9 @@ license: http://creativecommons.org/licenses/by/4.0/
 volume: 9
 year: 2019
 doi: http://doi.org./10.13154/volume.year.author_shorttitle
-CJKmainfont: Noto Serif CJK TC
+babelfonts:
+    chinese-hant: Noto Serif CJK TC
+    hebrew: FreeSerif
 nocite: |
     @*
 ...
