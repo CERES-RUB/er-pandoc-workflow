@@ -23,10 +23,43 @@ RUN pip3 install \
 # Add this once the texlive repo is frozen.
 #RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final \
 RUN tlmgr update --self \
-    && tlmgr install ctex \
-    				 footmisc \
-    				 koma-script \
-                     zref
+	&& tlmgr install ctex \
+					 footmisc \
+					 koma-script \
+					 zref \
+					 babel \
+					 babel-greek \
+					 babel-hebrew \
+					 babel-icelandic \
+					 babel-indonesian \
+					 babel-japanese \
+					 babel-latin \
+					 babel-malay \
+					 babel-russian \
+					 babel-thai \
+					 babel-turkish \
+					 babel-ukrainian \
+					 babel-vietnamese \
+					 hyphen-ancientgreek \
+					 hyphen-arabic \
+					 hyphen-armenian \
+					 hyphen-chinese \
+					 hyphen-churchslavonic \
+					 hyphen-coptic \
+					 hyphen-ethiopic \
+					 hyphen-farsi \
+					 hyphen-greek \
+					 hyphen-icelandic \
+					 hyphen-indic \
+					 hyphen-indonesian \
+					 hyphen-latin \
+					 hyphen-mongolian \
+					 hyphen-russian \
+					 hyphen-sanskrit \
+					 hyphen-thai \
+					 hyphen-turkish \
+					 hyphen-turkmen \
+					 hyphen-ukrainian
 
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache
