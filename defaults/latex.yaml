@@ -9,8 +9,12 @@ variables:
         - DIV=12
         - footlines=2.1
         - usegeometry=true
-    mainfont: Charis SIL
-    sansfont: Charis SIL Compact
+    mainfont: Noto Serif
+    mainfontoptions:
+        - "BoldFont=*-Bold"
+    sansfont: Noto Sans
+    sansfontoptions:
+        - "BoldFont=*-Bold"
     indent: true
     linestretch: 1.1
     colorlinks: true

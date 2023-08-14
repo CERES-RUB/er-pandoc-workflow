@@ -364,17 +364,22 @@ $endif$
 %% Colors
 \definecolor{parnum}{gray}{0.5}
 
+%% Page background
+\usepackage{eso-pic}
+
 %% Figure captions
 \KOMAoptions{captions=tableabove}
 \addtokomafont{caption}{\normalfont\small}
 \addtokomafont{captionlabel}{\bfseries}
 \renewcommand*{\captionformat}{\quad}
 
-%% page headings
+%% page headings and fonts
 \setkomafont{pageheadfoot}{%
 \normalfont\normalcolor\small}
-\setkomafont{author}{\large\scshape}
+\setkomafont{author}{\large}
 \setkomafont{date}{\large}
+%% Make headings serif
+\addtokomafont{disposition}{\rmfamily}
 
 %% enumerations
 
@@ -549,6 +554,32 @@ $endif$
 %% ER Title
 %% No additional space between sentences
 \frenchspacing
+
+%% Title Page
+\AddToShipoutPicture*{\includegraphics[width=\paperwidth]{sinuswelle}}
+\begin{titlepage}
+\begin{raggedleft}
+\vspace*{\fill}
+%% Author
+$for(author)$
+$if(author.name)$
+{\usekomafont{author}\noindent $author.name$\par}
+$else$
+{\usekomafont{author}$author$\par}
+$endif$
+$endfor$
+%% Title and subtitle
+$if(title)$
+{\usekomafont{title}\LARGE\noindent $title$\par}
+$if(subtitle)$
+\vspace*{.5\baselineskip}
+{\usekomafont{subtitle}\Large\noindent $subtitle$\par}
+$endif$
+$endif$
+\vspace*{\fill}
+{\textit{Metaphor Papers} $issue$\par}
+\end{raggedleft}
+\end{titlepage}
 
 \cleardoubleoddpage
 \thispagestyle{empty}
