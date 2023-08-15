@@ -18,4 +18,8 @@ variables:
     indent: true
     linestretch: 1.1
     colorlinks: true
-    linkcolor: NavyBlue
+    linkcolor: DodgerBlue4
+    filecolor: DodgerBlue4
+    citecolor: DodgerBlue4
+    urlcolor: DodgerBlue4
+    toccolor: DodgerBlue4
