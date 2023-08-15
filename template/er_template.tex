@@ -332,9 +332,9 @@ $endif$
 \usepackage[headsepline]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 $if(header)$
-\lohead{\textsc{$header$}}
+\lohead{$header$}
 $endif$
-\rohead{\textit{Entangled Religions} $if(volume)$$volume$$if(issue)$.$issue$$endif$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$}
+\rohead{\textit{Metaphor Papers} $issue$ $if(year)$($year$)$endif$}
 %\cofoot[]{\thepage}
 \cofoot[]{}
 %% /ER
@@ -650,8 +650,7 @@ $if(license)$License:~$if(license-label)$\href{$license$}{$license-label$}$else$
 \begin{minipage}[c]{.4\textwidth}
 \scriptsize
 \raggedleft
-\textit{Entangled Religions} $if(volume)$$volume$$if(issue)$.$issue$$endif$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$\\
-\href{https://er.ceres.rub.de/}{er.ceres.rub.de}
+\textit{Metaphor Papers} $issue$ $if(year)$($year$)$endif$\\
 \end{minipage}
 
 %% Title
