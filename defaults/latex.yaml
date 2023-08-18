@@ -1,5 +1,5 @@
 to: latex
-pdf-engine: xelatex
+pdf-engine: lualatex
 template: template/er_template.tex
 default-image-extension: ".pdf"
 variables:

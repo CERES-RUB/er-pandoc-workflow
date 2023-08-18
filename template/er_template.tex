@@ -428,16 +428,29 @@ $if(babel-lang)$
 $if(mainfont)$
 \ifPDFTeX
 \else
-\babelfont{rm}[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+\babelfont{rm}[Language=Default,$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 \fi
 $endif$
 $endif$
 $for(babel-otherlangs)$
 \babelprovide[import]{$babel-otherlangs$}
 $endfor$
+%% ER Fonts
+\ifLuaTeX
+\directlua {
+  luaotfload.add_fallback("myfallback", {
+    "Noto Serif:mode=harf;",
+  })
+}
+\fi
 $for(babelfonts/pairs)$
+\ifLuaTeX
+\babelfont[$babelfonts.key$]{rm}[Language=Default,RawFeature={fallback=myfallback}]{$babelfonts.value$}
+\else
 \babelfont[$babelfonts.key$]{rm}{$babelfonts.value$}
+\fi
 $endfor$
+%% /ER
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}

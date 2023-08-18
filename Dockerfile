@@ -26,8 +26,10 @@ RUN tlmgr update --self \
 	&& tlmgr install ctex \
 					 footmisc \
 					 koma-script \
+					 luacolor \
+					 luatexja \
+					 lua-ul \
 					 zref \
-					 babel \
 					 babel-greek \
 					 babel-hebrew \
 					 babel-icelandic \
