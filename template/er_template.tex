@@ -598,7 +598,6 @@ $endif$
 %% Title Back
 \clearpage
 \thispagestyle{empty}
-\begin{singlespace}
 \begin{minipage}[t]{\textwidth}
 {\bfseries\itshape Metaphor Papers} is a Working Paper Series by the Collaborative Research Center 1475 “Metaphors
 of Religion”. In the \textit{Metaphor Papers}, the CRC documents preliminary findings, work-in-progress and
@@ -638,11 +637,9 @@ Research Foundation) – SFB 1475 – Project ID 441126958.
 %\includegraphics[height=30mm]{Logo_SFB1475}\hspace{2em}%
 \includegraphics[height=25mm]{Logo_DFG}
 \end{minipage}
-\end{singlespace}
 
 \cleardoubleoddpage
 \thispagestyle{empty}
-\begin{singlespace}
 
 %% Logo
 \hfill\includegraphics[height=3\baselineskip]{Logo_SFB1475.pdf}
@@ -701,22 +698,19 @@ $if(date)$
 %{\usekomafont{date}$date$\par}
 $endif$
 \vspace{2\baselineskip}
-\end{singlespace}
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
 $if(abstract)$
-\begin{quote}
-\small
-\begin{tabular}{@{}p{\linewidth}@{}}
-\toprule
-{\bfseries\scshape abstract}\hspace{1em}$abstract$\\
+{\small
+{\bfseries\scshape abstract}\hspace{1em}$abstract$\par
 $if(keywords)$
-\midrule[\heavyrulewidth]
-{\bfseries\scshape keywords}\hspace{1em}$for(keywords)$$keywords$$sep$, $endfor$\\
+{\bfseries\scshape keywords}\hspace{1em}$for(keywords)$$keywords$$sep$, $endfor$\par
 $endif$
-\bottomrule
-\end{tabular}
-\end{quote}
 \vspace{1.8181\baselineskip} % Since we altered line spacing, we need to adjust the vspace here.
-$endif$
+}$endif$
 
 $for(include-before)$
 $include-before$
@@ -748,9 +742,6 @@ $if(lof)$
 $endif$
 $if(lot)$
 \listoftables
-$endif$
-$if(linestretch)$
-\setstretch{$linestretch$}
 $endif$
 $if(has-frontmatter)$
 \mainmatter
