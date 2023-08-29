@@ -16,7 +16,7 @@ variables:
     sansfontoptions:
         - "BoldFont=*-Bold"
     indent: true
-    linestretch: 1.1
+    linestretch: 1.2
     colorlinks: true
     linkcolor: DodgerBlue4
     filecolor: DodgerBlue4
