@@ -608,17 +608,16 @@ ongoing debates and makes them available for discussion.
 \begin{minipage}[c]{\textwidth}
 Please cite as:
 
-Nachname, Vorname. “Titel. Untertitel.” Metaphor Papers (2023). https://doi.org/...
+$for(author)$$author.name$$sep$, $endfor$. “$title$$if(subtitle)$. $subtitle$$endif$.” Metaphor Papers $issue$ ($year$). $doi$.
 
 \bigskip
 ISSN
 
 \bigskip
-© The authors
+© $for(author)$$author.name$$sep$, $endfor$.
 
 \bigskip
-All \textit{Metaphor Papers} are published under the Open Access CC-BY 4.0 International license:\\
-\url{https://creativecommons.org/licenses/by/4.0/}
+All \textit{Metaphor Papers} are published under the Open Access CC-BY 4.0 International license: \url{https://creativecommons.org/licenses/by/4.0/}
 \end{minipage}
 \vfill
 \begin{minipage}[b]{\textwidth}
@@ -664,7 +663,7 @@ $if(license)$License:~$if(license-label)$\href{$license$}{$license-label$}$else$
 \begin{minipage}[c]{.4\textwidth}
 \scriptsize
 \raggedleft
-\textit{Metaphor Papers} $issue$ $if(year)$($year$)$endif$\\
+\href{https://omp.ub.rub.de/index.php/metaphorpapers}{\textit{Metaphor Papers}} $issue$ $if(year)$($year$)$endif$\\
 \end{minipage}
 
 %% Title
