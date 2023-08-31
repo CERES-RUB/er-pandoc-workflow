@@ -12,10 +12,10 @@ from panflute import *
 
 def hangbib(elem, doc):
     if (isinstance(elem, Div)
-        and 'references' in elem.classes
-        and not elem.identifier == 'refs'):
+            and 'references' in elem.classes
+            and not elem.identifier == 'refs'):
         if doc.format == 'latex':
-            return [RawBlock(r'\begin{CSLReferences}', format='latex'),
+            return [RawBlock(r'\begin{CSLReferences}{1}{0}', format='latex'),
                     elem,
                     RawBlock(r'\end{CSLReferences}', format='latex'),
                     ]
