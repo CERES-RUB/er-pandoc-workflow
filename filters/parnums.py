@@ -37,7 +37,9 @@ def test_para(elem):
     # not within .noparnums class
     thiselem = elem
     while thiselem.parent:
-        if isinstance(thiselem.parent, Div) and 'noparnums' in thiselem.parent.classes:
+        if (isinstance(thiselem.parent, Div)
+            and ('noparnums' in thiselem.parent.classes
+                 or 'references' in thiselem.parent.classes)):
             return False
         thiselem = thiselem.parent
     # and no figures
