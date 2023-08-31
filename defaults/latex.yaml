@@ -1,4 +1,4 @@
-to: latex
+to: latex-smart
 pdf-engine: lualatex
 template: template/er_template.tex
 default-image-extension: ".pdf"
@@ -15,6 +15,9 @@ variables:
     sansfont: Noto Sans
     sansfontoptions:
         - "BoldFont=*-Bold"
+    fallbackfonts:
+        - Noto Serif
+        - Noto Sans Symbols
     indent: true
     linestretch: 1.2
     colorlinks: true
