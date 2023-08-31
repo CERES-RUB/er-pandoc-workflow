@@ -390,6 +390,16 @@ $endif$
 %% set floats above footnotes
 \usepackage[bottom]{footmisc}
 
+%% Font fallbacks
+$if(fallbackfonts)$
+\ifLuaTeX
+\directlua {
+  luaotfload.add_fallback("myfallback", {
+  $for(fallbackfonts)$"$fallbackfonts$:mode=harf;"$sep$,$endfor$
+  })
+}
+\fi
+$endif$
 %% /ER
 
 $if(csl-refs)$
@@ -428,7 +438,7 @@ $if(babel-lang)$
 $if(mainfont)$
 \ifPDFTeX
 \else
-\babelfont{rm}[Language=Default,$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+\babelfont{rm}[Language=Default,$if(fallbackfonts)$RawFeature={fallback=myfallback},$endif$$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 \fi
 $endif$
 $endif$
@@ -436,16 +446,9 @@ $for(babel-otherlangs)$
 \babelprovide[import]{$babel-otherlangs$}
 $endfor$
 %% ER Fonts
-\ifLuaTeX
-\directlua {
-  luaotfload.add_fallback("myfallback", {
-    "Noto Serif:mode=harf;",
-  })
-}
-\fi
 $for(babelfonts/pairs)$
 \ifLuaTeX
-\babelfont[$babelfonts.key$]{rm}[Language=Default,RawFeature={fallback=myfallback}]{$babelfonts.value$}
+\babelfont[$babelfonts.key$]{rm}[Language=Default$if(fallbackfonts)$,RawFeature={fallback=myfallback}$endif$]{$babelfonts.value$}
 \else
 \babelfont[$babelfonts.key$]{rm}{$babelfonts.value$}
 \fi
