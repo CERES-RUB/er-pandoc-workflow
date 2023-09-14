@@ -361,8 +361,9 @@ $endif$
 \widowpenalty=10000
 \clubpenalty=10000
 
-%% Colors
+%% Colors and boxes
 \definecolor{parnum}{gray}{0.5}
+\usepackage{tcolorbox}
 
 %% Page background
 \usepackage{eso-pic}
@@ -574,8 +575,9 @@ $endif$
 %% Title Page
 \AddToShipoutPicture*{\includegraphics[width=\paperwidth]{sinuswelle}}
 \begin{titlepage}
-\begin{raggedleft}
 \vspace*{\fill}
+\begin{tcolorbox}[colback=white,colframe=white,%
+opacityback=0.5,opacityframe=0.5]
 %% Author
 $for(author)$
 $if(author.name)$
@@ -593,7 +595,9 @@ $if(subtitle)$
 {\usekomafont{subtitle}\Large\noindent $subtitle$\par}
 $endif$
 $endif$
+\end{tcolorbox}
 \vspace*{\fill}
+\begin{raggedleft}
 {\textit{Metaphor Papers} $issue$\par}
 \end{raggedleft}
 \end{titlepage}
@@ -612,8 +616,8 @@ Please cite as:
 
 $for(author)$$author.name$$sep$, $endfor$. “$title$$if(subtitle)$. $subtitle$$endif$.” \textit{Metaphor Papers} $issue$ ($year$).$if(doi)$ $doi$.$endif$
 
-\bigskip
-ISSN
+%\bigskip
+%ISSN
 
 \bigskip
 © $for(author)$$author.name$$sep$, $endfor$.
