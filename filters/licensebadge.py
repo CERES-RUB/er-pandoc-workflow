@@ -9,11 +9,11 @@ from panflute import *
 
 LICENSES = {
     'http://creativecommons.org/licenses/by/4.0/': {
-        'badge': 'cc-by_clean',
+        'badge': 'cc-by',
         'label': 'Creative Commons Attribution 4.0',
     },
     'http://creativecommons.org/licenses/by-sa/4.0/': {
-        'badge': 'cc-by-sa_clean',
+        'badge': 'cc-by-sa',
         'label': 'Creative Commons Attribution-ShareAlike 4.0',
     },
 }
