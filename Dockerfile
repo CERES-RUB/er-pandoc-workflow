@@ -66,6 +66,9 @@ RUN tlmgr update --self \
 					 hyphen-turkmen \
 					 hyphen-ukrainian
 
+# Fix tibetan hyphenation
+COPY fonts/babel-tibetan.tex /opt/texlive/texdir/texmf-dist/tex/generic/babel/locale/bo/
+# Copy missing Syriac font
 COPY fonts/NotoSansSyriacEstrangela-Regular.ttf /usr/share/fonts/truetype/
 RUN fc-cache
 
