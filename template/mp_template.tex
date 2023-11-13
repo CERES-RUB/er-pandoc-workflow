@@ -332,9 +332,9 @@ $endif$
 \usepackage[headsepline]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 $if(header)$
-\lohead{\textsc{$header$}}
+\lohead{$header$}
 $endif$
-\rohead{\textit{Entangled Religions} $if(volume)$$volume$$if(issue)$.$issue$$endif$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$}
+\rohead{\textit{Metaphor Papers} $issue$ $if(year)$($year$)$endif$}
 %\cofoot[]{\thepage}
 \cofoot[]{}
 %% /ER
@@ -361,8 +361,12 @@ $endif$
 \widowpenalty=10000
 \clubpenalty=10000
 
-%% Colors
+%% Colors and boxes
 \definecolor{parnum}{gray}{0.5}
+\usepackage{tcolorbox}
+
+%% Page background
+\usepackage{eso-pic}
 
 %% Figure captions
 \KOMAoptions{captions=tableabove}
@@ -370,11 +374,13 @@ $endif$
 \addtokomafont{captionlabel}{\bfseries}
 \renewcommand*{\captionformat}{\quad}
 
-%% page headings
+%% page headings and fonts
 \setkomafont{pageheadfoot}{%
 \normalfont\normalcolor\small}
-\setkomafont{author}{\large\scshape}
+\setkomafont{author}{\large}
 \setkomafont{date}{\large}
+%% Make headings serif
+\addtokomafont{disposition}{\rmfamily}
 
 %% enumerations
 
@@ -385,6 +391,16 @@ $endif$
 %% set floats above footnotes
 \usepackage[bottom]{footmisc}
 
+%% Font fallbacks
+$if(fallbackfonts)$
+\ifLuaTeX
+\directlua {
+  luaotfload.add_fallback("myfallback", {
+  $for(fallbackfonts)$"$fallbackfonts$:mode=harf;"$sep$,$endfor$
+  })
+}
+\fi
+$endif$
 %% /ER
 
 $if(csl-refs)$
@@ -423,7 +439,7 @@ $if(babel-lang)$
 $if(mainfont)$
 \ifPDFTeX
 \else
-\babelfont{rm}[Language=Default,$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+\babelfont{rm}[Language=Default,$if(fallbackfonts)$RawFeature={fallback=myfallback},$endif$$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 \fi
 $endif$
 $endif$
@@ -431,16 +447,9 @@ $for(babel-otherlangs)$
 \babelprovide[import]{$babel-otherlangs$}
 $endfor$
 %% ER Fonts
-\ifLuaTeX
-\directlua {
-  luaotfload.add_fallback("myfallback", {
-    "Noto Serif:mode=harf;",
-  })
-}
-\fi
 $for(babelfonts/pairs)$
 \ifLuaTeX
-\babelfont[$babelfonts.key$]{rm}[Language=Default,RawFeature={fallback=myfallback}]{$babelfonts.value$}
+\babelfont[$babelfonts.key$]{rm}[Language=Default$if(fallbackfonts)$,RawFeature={fallback=myfallback}$endif$]{$babelfonts.value$}
 \else
 \babelfont[$babelfonts.key$]{rm}{$babelfonts.value$}
 \fi
@@ -563,12 +572,84 @@ $endif$
 %% No additional space between sentences
 \frenchspacing
 
+%% Title Page
+\AddToShipoutPicture*{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{sinuswelle}}
+\begin{titlepage}
+\vspace*{\fill}
+\begin{tcolorbox}[colback=white,colframe=white,%
+opacityback=0.5,opacityframe=0.5]
+%% Author
+$for(author)$
+$if(author.name)$
+{\usekomafont{author}\noindent $author.name$\par}
+$else$
+{\usekomafont{author}$author$\par}
+$endif$
+$endfor$
+%% Title and subtitle
+$if(title)$
+\medskip
+{\usekomafont{title}\LARGE\noindent $title$\par}
+$if(subtitle)$
+\vspace*{.5\baselineskip}
+{\usekomafont{subtitle}\Large\noindent $subtitle$\par}
+$endif$
+$endif$
+\end{tcolorbox}
+\vspace*{\fill}
+\begin{raggedleft}
+{\textit{Metaphor Papers} $issue$\par}
+\end{raggedleft}
+\end{titlepage}
+
+%% Title Back
+\clearpage
+\thispagestyle{empty}
+\begin{minipage}[t]{\textwidth}
+{\bfseries\itshape Metaphor Papers} is a Working Paper Series by the Collaborative Research Center 1475 “Metaphors
+of Religion”. In the \textit{Metaphor Papers}, the CRC documents preliminary findings, work-in-progress and
+ongoing debates and makes them available for discussion.
+\end{minipage}
+\vfill
+\begin{minipage}[c]{\textwidth}
+Please cite as:
+
+$for(author)$$author.name$$sep$, $endfor$. “$title$$if(subtitle)$. $subtitle$$endif$.” \textit{Metaphor Papers} $issue$ ($year$).$if(doi)$ https://doi.org/$doi$.$endif$
+
+\bigskip
+© $for(author)$$author.name$$sep$, $endfor$.
+
+\bigskip
+All \textit{Metaphor Papers} are published under the Open Access CC-BY 4.0 International license: \url{https://creativecommons.org/licenses/by/4.0/}
+
+\bigskip
+ISSN 2942-0849
+\end{minipage}
+\vfill
+\begin{minipage}[b]{\textwidth}
+Ruhr-Universität Bochum / Karlsruher Institut für Technologie
+
+Collaborative Research Center 1475 “Metaphors of Religion”
+
+\bigskip
+\url{https://sfb1475.ruhr-uni-bochum.de}
+
+\url{https://omp.ub.rub.de/index.php/metaphorpapers}
+
+\bigskip
+The CRC “Metaphors of Religion” is funded by the Deutsche Forschungsgemeinschaft (DFG; German
+Research Foundation) – SFB 1475 – Project ID 441126958.
+
+\medskip
+\includegraphics[height=30mm]{Logo_SFB1475}\hspace{2em}%
+\includegraphics[height=25mm]{Logo_DFG}
+\end{minipage}
+
 \cleardoubleoddpage
 \thispagestyle{empty}
-\begin{singlespace}
 
 %% Logo
-\hfill\includegraphics[height=3\baselineskip]{Logo_ER.pdf}
+\hfill\includegraphics[height=3\baselineskip]{Logo_Metaphor_Papers}
 \noindent\rule{\textwidth}{\heavyrulewidth}
 
 %% Head
@@ -586,8 +667,7 @@ $if(license)$License:~$if(license-label)$\href{$license$}{$license-label$}$else$
 \begin{minipage}[c]{.4\textwidth}
 \scriptsize
 \raggedleft
-\textit{Entangled Religions} $if(volume)$$volume$$if(issue)$.$issue$$endif$ $if(year)$($year$)$endif$$else$$if(year)$$year$$endif$$endif$\\
-\href{https://er.ceres.rub.de/}{er.ceres.rub.de}
+\href{https://omp.ub.rub.de/index.php/metaphorpapers}{\textit{Metaphor Papers}} $issue$ $if(year)$($year$)$endif$\\
 \end{minipage}
 
 %% Title
@@ -625,22 +705,19 @@ $if(date)$
 %{\usekomafont{date}$date$\par}
 $endif$
 \vspace{2\baselineskip}
-\end{singlespace}
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
 $if(abstract)$
-\begin{quote}
-\small
-\begin{tabular}{@{}p{\linewidth}@{}}
-\toprule
-{\bfseries\scshape abstract}\hspace{1em}$abstract$\\
+{\small
+{\bfseries\scshape abstract}\hspace{1em}$abstract$\par
 $if(keywords)$
-\midrule[\heavyrulewidth]
-{\bfseries\scshape keywords}\hspace{1em}$for(keywords)$$keywords$$sep$, $endfor$\\
+{\bfseries\scshape keywords}\hspace{1em}$for(keywords)$$keywords$$sep$, $endfor$\par
 $endif$
-\bottomrule
-\end{tabular}
-\end{quote}
 \vspace{1.8181\baselineskip} % Since we altered line spacing, we need to adjust the vspace here.
-$endif$
+}$endif$
 
 $for(include-before)$
 $include-before$
@@ -672,9 +749,6 @@ $if(lof)$
 $endif$
 $if(lot)$
 \listoftables
-$endif$
-$if(linestretch)$
-\setstretch{$linestretch$}
 $endif$
 $if(has-frontmatter)$
 \mainmatter

@@ -1,28 +1,4 @@
+defaults: defaults/common.yaml
 to: latex-smart
 pdf-engine: lualatex
-template: template/er_template.tex
 default-image-extension: ".pdf"
-variables:
-    documentclass: scrartcl
-    classoption:
-        - a4paper
-        - DIV=12
-        - footlines=2.1
-        - usegeometry=true
-    mainfont: Noto Serif
-    mainfontoptions:
-        - "BoldFont=*-Bold"
-    sansfont: Noto Sans
-    sansfontoptions:
-        - "BoldFont=*-Bold"
-    fallbackfonts:
-        - Noto Serif
-        - Noto Sans Symbols
-    indent: true
-    linestretch: 1.2
-    colorlinks: true
-    linkcolor: DodgerBlue4
-    filecolor: DodgerBlue4
-    citecolor: DodgerBlue4
-    urlcolor: DodgerBlue4
-    toccolor: DodgerBlue4

@@ -1,0 +1,5 @@
+defaults: defaults/html.yaml
+template: template/er_template.html
+css: https://er.ceres.rub.de/public/journals/2/styleSheet.css
+variables:
+    img-prefix: https://static.ceres.rub.de/er/images/

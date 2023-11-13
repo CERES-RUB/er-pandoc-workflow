@@ -2,22 +2,21 @@
 
 if [ -z "$1" ]; then
     echo "Specify an input file."
-    exit -1
+    exit 1
 fi
 
-DIR=$(dirname $0)
-cd $DIR
+DIR="$(dirname "$0")"
+cd "$DIR" || exit
 
 function build_tex {
 
-    echo "Creating file $2 ... "
+    echo "Creating file $3 ... "
 
-    BASEPATH="$(dirname $1)"
+    BASEPATH="$(dirname "$2")"
 
-    pandoc "$1" \
-        --output "$2" \
-        --defaults "defaults/common.yaml" \
-        --defaults "defaults/latex.yaml" \
+    pandoc "$2" \
+        --output "$3" \
+        --defaults "defaults/${JOURNAL}_latex.yaml" \
         --resource-path ".:$BASEPATH" \
     && echo "done." \
     || echo "error!"
@@ -26,29 +25,34 @@ function build_tex {
 
 function build_html {
 
-    echo "Creating file $2 ... "
+    echo "Creating file $3 ... "
 
-    BASEPATH="$(dirname $1)"
+    BASEPATH="$(dirname "$2")"
 
-    pandoc "$1" \
-        --defaults "defaults/common.yaml" \
-        --defaults "defaults/html.yaml" \
+    pandoc "$2" \
+        --defaults "defaults/${JOURNAL}_html.yaml" \
         --resource-path ".:$BASEPATH" \
     | xsltproc --nonet --novalid \
         filters/linktitles.xsl - \
     | xsltproc --nonet --novalid \
-        --output "$2" \
+        --output "$3" \
         filters/pandoctweaks.xsl - \
     && echo "done." \
     || echo "error!"
 
 }
 
-INFILE="$1"
+JOURNAL="$1"
+case $JOURNAL in
+    er|mp) ;;
+    *) echo "First argument needs to be the journal, 'er' or 'mp'."; exit 1 ;;
+esac
+
+INFILE="$2"
 TEXFILE="${INFILE%.*}.tex"
 PDFFILE="${INFILE%.*}.pdf"
 HTMLFILE="${INFILE%.*}.html"
 
-build_tex "$INFILE" "$TEXFILE"
-build_tex "$INFILE" "$PDFFILE"
-build_html "$INFILE" "$HTMLFILE"
+build_tex "$JOURNAL" "$INFILE" "$TEXFILE"
+build_tex "$JOURNAL" "$INFILE" "$PDFFILE"
+build_html "$JOURNAL" "$INFILE" "$HTMLFILE"
