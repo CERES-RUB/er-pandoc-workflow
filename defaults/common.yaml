@@ -1,7 +1,7 @@
 variables:
     indent:
+metadata-file: defaults/metadata.yaml
 metadata:
-    reference-section-title: References
     link-citations: true
     csl: template/entangled-religions.csl
 filters:
