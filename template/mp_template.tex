@@ -586,10 +586,10 @@ $endfor$
 %% Title and subtitle
 $if(title)$
 \medskip
-{\usekomafont{title}\LARGE\noindent $title$\par}
+{\usekomafont{title}\LARGE\noindent\raggedright $title$\par}
 $if(subtitle)$
 \vspace*{.5\baselineskip}
-{\usekomafont{subtitle}\Large\noindent $subtitle$\par}
+{\usekomafont{subtitle}\Large\noindent\raggedright $subtitle$\par}
 $endif$
 $endif$
 \end{tcolorbox}
