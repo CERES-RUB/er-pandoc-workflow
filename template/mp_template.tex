@@ -570,19 +570,22 @@ $endif$
 \frenchspacing
 
 %% Title Page
+% Only create title page if not part of a volume
+$if(part-of)$
+$else$
 \AddToShipoutPicture*{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{sinuswelle}}
 \begin{titlepage}
 \vspace*{\fill}
 \begin{tcolorbox}[colback=white,colframe=white,%
 opacityback=0.5,opacityframe=0.5]
 %% Author
-$for(author)$
-$if(author.name)$
-{\usekomafont{author}\noindent $author.name$\par}
-$else$
-{\usekomafont{author}$author$\par}
+$if(author)$
+{\usekomafont{author}\noindent $for(author/allbutlast)$$it:name()$$sep$, $endfor$$if(author/rest)$ and $endif$$author/last:name()$\par}
 $endif$
-$endfor$
+%% Editor
+$if(editor)$
+{\usekomafont{author}$for(editor/allbutlast)$$it$$sep$, $endfor$$if(editor/rest)$ and $endif$$editor/last$ (Ed$if(editor/rest)$s$endif$.)\par}
+$endif$
 %% Title and subtitle
 $if(title)$
 \medskip
@@ -611,10 +614,17 @@ ongoing debates and makes them available for discussion.
 \begin{minipage}[c]{\textwidth}
 Please cite as:
 
-$for(author)$$author.name$$sep$, $endfor$. “$title$$if(subtitle)$. $subtitle$$endif$.” \textit{Metaphor Papers} $issue$ ($year$).$if(doi)$ https://doi.org/$doi$.$endif$
+$if(author)$
+$for(author/allbutlast)$$it:name()$$sep$, $endfor$$if(author/rest)$ and $endif$$author/last:name()$. “$title$$if(subtitle)$. $subtitle$$endif$.” \textit{Metaphor Papers} $issue$ ($year$).$if(doi)$ https://doi.org/$doi$.$endif$
 
 \bigskip
-© $for(author)$$author.name$$sep$, $endfor$.
+© $year$ $for(author)$$it:name()$$sep$, $endfor$.
+$else$
+$for(editor/allbutlast)$$it$$sep$, $endfor$$if(editor/rest)$ and $endif$$editor/last$, ed$if(editor/rest)$s$endif$. \textit{$title$$if(subtitle)$. $subtitle$$endif$.} Metaphor Papers $issue$ ($year$).$if(doi)$ https://doi.org/$doi$.$endif$
+
+\bigskip
+© $year$ The authors.
+$endif$
 
 \bigskip
 All \textit{Metaphor Papers} are published under the Open Access CC-BY 4.0 International license: \url{https://creativecommons.org/licenses/by/4.0/}
@@ -643,7 +653,15 @@ Research Foundation) – SFB 1475 – Project ID 441126958.
 \end{minipage}
 
 \cleardoubleoddpage
-\thispagestyle{empty}
+$endif$
+
+\thispagestyle{plain.scrheadings}
+$if(part-of)$
+% Make space for the footer and set it for the first page
+\enlargethispage{-4\baselineskip}
+$-- The /rest trick checks if the array is larger than one, used for pluralization.
+\lofoot[$for(part-of.editor/allbutlast)$$it$$sep$, $endfor$$if(part-of.editor/rest)$ and $endif$$part-of.editor/last$, ed$if(part-of.editor/rest)$s$endif$. $year$. \textit{$part-of.title$$if(part-of.subtitle)$. $part-of.subtitle$$endif$.} Metaphor Papers $part-of.issue$.]{}
+$endif$
 
 %% Logo
 \hfill\includegraphics[height=3\baselineskip]{Logo_Metaphor_Papers}
