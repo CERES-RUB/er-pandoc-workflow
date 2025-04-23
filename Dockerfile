@@ -3,7 +3,7 @@ FROM pandoc/latex:3.1-ubuntu
 
 WORKDIR /data
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q --no-allow-insecure-repositories update \
 	&& apt-get install --assume-yes --no-install-recommends \
 		fonts-sil-charis \
