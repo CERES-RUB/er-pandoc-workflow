@@ -24,6 +24,7 @@ RUN pip3 install \
 #RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final \
 RUN tlmgr update --self \
 	&& tlmgr install ctex \
+					 enumitem \
 					 environ \
 					 eso-pic \
 					 footmisc \
