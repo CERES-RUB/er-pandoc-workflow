@@ -47,9 +47,12 @@ def test_para(elem):
         return False
     return True
 
-def test_list(elem):
-    # only compact lists:
+def test_compact_list(elem):
+    # only compact lists
     if not isinstance(elem, (BulletList, OrderedList)):
+        return False
+    # but not inside tables, footnotes or metadata
+    if ancestorisinstance(elem, (Table, Note, MetaBlocks)):
         return False
     has_complex_content = False
     for child in elem.content:
@@ -61,7 +64,7 @@ def test_list(elem):
 
 def enumerate_paragraphs(elem, doc):
     parnum = None
-    if test_para(elem) or test_list(elem):
+    if test_para(elem) or test_compact_list(elem):
         doc.parnum += 1
         parnum = Str(f'[{doc.parnum}]')
         pre_content = None
